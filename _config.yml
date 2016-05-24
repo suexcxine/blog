@@ -1,0 +1,48 @@
+title: Wind
+subtitle: null
+description: null
+author: Suex Cxine
+language: null
+timezone: null
+url: 'http://yoursite.com'
+root: /
+permalink: ':year/:month/:day/:title/'
+permalink_defaults: null
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: ':lang'
+skip_render: null
+new_post_name: ':title.md'
+default_layout: post
+titlecase: false
+external_link: true
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: true
+  tab_replace: null
+default_category: uncategorized
+category_map: null
+tag_map: null
+date_format: YYYY-MM-DD
+time_format: 'HH:mm:ss'
+per_page: 10
+pagination_dir: page
+theme: yilia
+swiftype_key: JHUEjYw3wttpVnzcf9Ft
+deploy:
+  type: git
+  repo: 
+      github: git@github.com:suexcxine/suexcxine.github.io.git,master
+      coding: git@git.coding.net:suexcxine/suexcxine.git,gitcafe-pages
+marked: {smartypants: false}
+
