@@ -1,0 +1,80 @@
+title: tsocks
+date: 2015-07-27
+tags: [internet, linux]
+---
+不仅浏览器,有时其他应用程序也需要代理,比如git clone的时候
+tsocks让shell也可以用代理
+<!--more-->
+## 安装tsocks
+sudo apt-get install tsocks
+
+## 编辑配置文件:/etc/tsocks.conf
+> local = 192.168.1.0/255.255.255.0
+> local = 127.0.0.0/255.0.0.0
+> server = 127.0.0.1 
+> server_type = 5
+> server_port = 1080 
+
+## 测试是否生效
+tsocks wget www.google.com
+--2015-07-27 14:27:24--  http://www.google.com/
+正在解析主机 www.google.com (www.google.com)... 216.58.221.36, 2404:6800:4005:809::2004
+正在连接 www.google.com (www.google.com)|216.58.221.36|:80... 已连接。
+已发出 HTTP 请求，正在等待回应... 200 OK
+长度： 未指定 [text/html]
+正在保存至: “index.html”
+...
+    2015-07-27 14:27:25 (73.9 KB/s) - “index.html” 已保存 [20410]
+
+## 结合polipo将socks5转换成http代理                                              
+
+    sudo apt-get install polipo                                                      
+    sudo vim /etc/polipo/config 
+配置如下:                                                                        
+
+    logSyslog = true                                                                 
+    logFile = /var/log/polipo/polipo.log                                                 
+    socksParentProxy = "127.0.0.1:1080"                                              
+    socksProxyType = socks5                                                          
+    proxyAddress = "::0"        # both IPv4 and IPv6                                 
+    # or IPv4 only                                                                   
+    # # proxyAddress = "0.0.0.0"                                                     
+    proxyPort = 8123  
+启动, 最好不用sudo(基本原则,能不用root权限就不用root权限),
+
+    polipo -c /opt/local/etc/polipo/config
+使用浏览器可以访问如下页面, 测试polipo是否已启动                                 
+http://localhost:8123/                                                           
+测试是否可用                                                                     
+
+    curl --proxy http://127.0.0.1:8123 https://www.google.com  
+其他使用方法                                                                     
+
+    http_proxy=http://localhost:8123 apt-get update                                  
+    http_proxy=http://localhost:8123 curl www.google.com                             
+    http_proxy=http://localhost:8123 wget www.google.com                             
+    git config --global http.proxy 127.0.0.1:8123                                    
+    git clone https://github.com/xxx/xxx.git                                         
+    git xxx                                                                          
+    git xxx                                                                          
+    git config --global --unset-all http.proxy  
+重启                                                                             
+
+    sudo service polipo restart  
+帮助                                                                             
+
+    man polipo 
+
+
+## 其他使用方法
+. tsocks -on
+. tsocks -off
+
+## 查看当前LD_PRELOAD的值
+tsocks -sh
+
+## 其他参考
+man 1 tsocks
+man 8 tsocks
+https://github.com/shadowsocks/shadowsocks/wiki/Convert-Shadowsocks-into-an-HTTP-proxy
+
