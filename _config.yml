@@ -42,7 +42,7 @@ swiftype_key: JHUEjYw3wttpVnzcf9Ft
 deploy:
   type: git
   repo: 
-      github: https://github.com/suexcxine/suexcxine.github.io.git,master
-      coding: https://git.coding.net/suexcxine/suexcxine.git,gitcafe-pages
+      github: git@github.com:suexcxine/suexcxine.github.io.git,master
+      coding: git@git.coding.net:suexcxine/suexcxine.git,gitcafe-pages
 marked: {smartypants: false}
 
