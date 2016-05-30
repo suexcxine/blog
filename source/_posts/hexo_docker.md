@@ -17,7 +17,7 @@ hexo做为把markdown转换成html的工具而存在
 在自己电脑上写markdown(最好是带预览的那种编辑器如atom), 提交github, 
 ssh vps执行
 ```
-docker start hexo && docker exec hexo sh -c 'git pull' && docker exec hexo hexo g -d
+docker start hexo && docker exec hexo sh -c 'git pull' && docker exec hexo hexo g
 ```
 刷新自己的网站即可看到更新
 
