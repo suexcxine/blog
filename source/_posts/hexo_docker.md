@@ -4,6 +4,7 @@ tags: [hexo, docker]
 ---
 
 最近有点迷上docker, 打算把电脑里的服务一个个地都做成docker image..
+<!--more-->
 
 ### 思路
 
