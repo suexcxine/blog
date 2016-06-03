@@ -36,3 +36,6 @@ services:
 http://stackoverflow.com/questions/35297093/links-between-containers-not-working-with-docker-compose-version-2
 http://stackoverflow.com/questions/36087173/containers-are-not-linked-with-docker-compose-version-2
 
+compose networking的详细讲解,非常清晰易懂
+https://github.com/docker/compose/blob/master/docs/networking.md
+
