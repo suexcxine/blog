@@ -85,6 +85,24 @@ Host tunnel
     User coolio
 </pre>
 
+## finger print
+为了防范'中间人攻击', ssh程序会将远程ssh服务器发来的服务器公钥的finger print和上次连接时保存的finger print对比
+如果检测到fingerprint变化,即表示你所连接的机器的public key发生了改变,
+这可能是由于ssh软件重装, 也可能是由于load balancer将你的请求转到了域名/IP的另一台机器,
+也可能是遇到了'中间人攻击',攻击者截取/转发你的ssh连接到另一台机器,可能会窃取你的用户名/密码
+
+服务器公钥一般在/etc/ssh目录下,如ssh_host_rsa_key.pub或其他类型如ecdsa, 
+这个finger print一般会被客户端保存在$HOME/.ssh/authorized_keys,
+finger print是服务器公钥的一个简略版(通过hast生成), 比起公钥容易对比一些. 想要找到finger print的公钥碰撞很难.
+
+微软的软件里, 使用thumbprint而不是fingerprint,
+
+如何查看公钥的finger print?
+ssh-keygen -lf filename
+也可以查看known_hosts里的finger print
+ssh-keygen -lf ~/.ssh/known_hosts
+也可以查看私钥的finger print
+
 ## 参考链接
 http://nerderati.com/2011/03/17/simplify-your-life-with-an-ssh-config-file/
 http://linux.die.net/man/1/ssh-copy-id
