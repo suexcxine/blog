@@ -1,4 +1,4 @@
-title: linux env
+title: linux命令env
 date: 2016-06-04 17:17:00
 tags: linux
 ---
