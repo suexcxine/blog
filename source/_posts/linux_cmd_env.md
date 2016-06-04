@@ -1,4 +1,4 @@
-title: netcat
+title: linux env
 date: 2016-06-04 17:17:00
 tags: linux
 ---
