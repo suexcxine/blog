@@ -58,7 +58,6 @@ User switch command
 ```
 
 ### 增加-hidden命令行参数避免出现在nodes()函数的返回值里, 同时避免自动连接到整个集群上
-如:
 ```
 $ erl -name b@127.0.0.1 -setcookie abc -remsh a@127.0.0.1 -hidden
 Erlang R15B03 (erts-5.9.3.1) [source] [64-bit] [smp:4:4] [async-threads:0] [hipe] [kernel-poll:false]
