@@ -41,7 +41,7 @@ docker exec -it $container bash
 如上进入后环境变量里仍然没有TERM=xterm, 反直觉, 这里的-t参数无效
 docker team给出的理由是exec并不会新建一个container,而是在原来的container里执行, 所以原来没-t现在加-t也没用, 
 那exec的-t参数是干什么用的? 结果是exec时不设-t也不行, 也不能正常工作             
-最后只能这样
+到最后只能这样
 ```
 docker exec -it $container /bin/bash -c "export TERM=xterm; command" 
 ```
