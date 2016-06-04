@@ -58,7 +58,8 @@ bash: hash: xxx: 未找到
 判断并返回0或1
 
 ## set
-不带参数的set返回所有的变量和值, set命令还用于设置位置参数的值
+用于设置shell内部变量, 不带参数的set返回所有这些变量和值
+set命令还可用于设置位置参数的值
 
 ```
 $ set +o history # To disable the history storing.
