@@ -1,3 +1,1 @@
-# 发布博客
-ssh loc "docker exec hexo sh -c 'git pull' && docker exec hexo hexo g"
-
+git add source && git commit -m "修改博客" && git push
