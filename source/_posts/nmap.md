@@ -49,6 +49,14 @@ nmap -sL 192.168.1.6 192.168.1.1
 nmap -O -PN 192.168.1.1/24
 nmap -O --osscan-guess 192.168.1.1
 
+## 其他
+#### sun-answerbook是什么鬼?
+出现在nmap的service列中
+调查发现: 
+sun-answerbook是sun的过时的文档http服务,该服务正好也用8888端口,
+于是nmap看到8888端口就以为是sun answerbook, 其实不是, 所以nmap的这个不准
+用netstat -ontlp看看8888端口的进程名还能明白点
+
 ## 参考链接
 http://www.2cto.com/Article/201207/142903.html
 
