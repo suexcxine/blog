@@ -17,7 +17,7 @@ Traceroute 使用 ICMP 报文和 IP 首部中的 TTL 字段，它充分利用了
 一条路径上的每个设备traceroute默认要测3次。
 输出结果中包括每次测试的时间(ms)和设备的名称（如有的话）及其IP地址。
 
-## 
+## 使用
 ```
 $ traceroute -n -q 2 -m 7 suexcxine.cc
 traceroute to suexcxine.cc (118.193.216.246), 7 hops max, 60 byte packets
@@ -30,7 +30,7 @@ traceroute to suexcxine.cc (118.193.216.246), 7 hops max, 60 byte packets
 7  219.158.6.42  9.365 ms  9.464 ms
 ```
 
-### 参数
+#### 参数
 -n 不使用dns, 直接使用ip地址
 -q 每个网关发送数据包数量
 -m 最大跳数
