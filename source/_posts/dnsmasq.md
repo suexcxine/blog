@@ -11,9 +11,9 @@ tags: [internet, dns]
 # cat /root/dnsmasq_conf/dnsmasq.hosts 
 118.193.216.246 suexcxine.me
 ```
-启动dnsmasq服务
+启动dnsmasq服务, 上游服务器设为opendns的5353(防53的投毒)端口
 ```
-# docker run --name dns -d -p 53:53/tcp -p 53:53/udp -v /root/dnsmasq_conf:/etc/dnsmasq --cap-add=NET_ADMIN andyshinn/dnsmasq:2.75 --addn-hosts=/etc/dnsmasq/dnsmasq.hosts
+# docker run --name dns -d -p 53:53/tcp -p 53:53/udp -v /root/dnsmasq_conf:/etc/dnsmasq --cap-add=NET_ADMIN andyshinn/dnsmasq:2.75 --addn-hosts=/etc/dnsmasq/dnsmasq.hosts --server=208.67.220.220#5353
 ```
 在网络连接里将自己机器的dns设为vps的ip, 并测试
 ```
