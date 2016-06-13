@@ -9,7 +9,7 @@ tags: [internet, tcp]
 
 建立tcp连接需要三次握手: SYN, SYN+ACK, ACK
 
-![建立tcp连接](/pics/tcp/tcp_established.gif)
+![建立tcp连接](/pics/tcp/tcp_establish.gif)
 
 断开tcp连接需要四次握手: FIN, ACK, FIN, ACK
 
