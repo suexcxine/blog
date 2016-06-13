@@ -11,7 +11,7 @@ tags: [internet, tcp]
 
 ![建立tcp连接](/pics/tcp/tcp_establish.gif)
 
-断开tcp连接需要四次握手: FIN, ACK, FIN, ACK
+断开tcp连接需要四次挥手: FIN, ACK, FIN, ACK
 
 ![断开tcp连接](/pics/tcp/tcp_close.gif)
 
