@@ -41,7 +41,7 @@ google搜索"noshell unicode", 在erlang文档里stdlib app的user guide中发�
 ```
 > io:setopts(user, [{encoding, unicode}]).          
 ok
-(cancer2@192.168.1.114)14> io:getopts(user).                       
+> io:getopts(user).                       
 [{binary,false},{encoding,unicode}]
 ```
 
