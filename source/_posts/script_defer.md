@@ -6,7 +6,7 @@ tags: [html, javascript, web]
 自己搭建的博客使用了swiftype之后, 有些css的渲染经常中断, 具体是博文的标签没显示出来
 查了半天, 貌似是swiftype加载过程会中断页面渲染,
 找到一个defer属性, 要求必须和src属性配合着用,
-于是又把swiftype提供的<script>内嵌代码移到一个单独的js文件中,
+于是又把swiftype提供的代码移到一个单独的js文件中,
 使用src属性引用, 即如下这样:
 ```
 <script defer src="/js/swiftype.js" type="text/javascript"></script>
