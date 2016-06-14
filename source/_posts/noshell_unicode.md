@@ -49,4 +49,5 @@ ok
 
 ## 参考链接
 http://erlang.org/doc/apps/stdlib/unicode_usage.html
+http://erlang.org/doc/man/user.html
 
