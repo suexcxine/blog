@@ -141,6 +141,14 @@ include=/etc/php5/fpm/pool.d/*.conf
 
 用户是www-data
 
+### 反向代理
+将收到的流量转发到其它url, 如下
+```
+location / { 
+    proxy_pass http://redmine.suexcxine.cc:3000;
+}
+```
+
 ### php-fpm端口引发的502 BAD GATEWAY的问题
 /etc/php5/fpm/pool.d/www.conf里有listen = /var/run/php5-fpm.sock
 nginx.conf里的配置应为: fastcgi_pass unix:/var/run/php5-fpm.sock;
