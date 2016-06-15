@@ -1,5 +1,5 @@
 title: wireshark interface list为空的问题
-date: 2016-06-04 20:04:00
+date: 2016-06-15 15:31:00
 tags: [internet, linux]
 ---
 
