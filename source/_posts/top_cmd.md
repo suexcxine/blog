@@ -9,10 +9,8 @@ shift+m, 按内存占用量降序显示
 
 ## 名词解释
 VIRT  --  Virtual Image (kb)
-The  total  amount  of  virtual  memory  used  by the task.  It
-includes all code, data and shared libraries  plus  pages  that
-have  been  swapped out and pages that have been mapped but not
-used.
+The  total  amount  of  virtual  memory  used  by the task.  It includes all code, data and shared libraries  plus  pages  that
+have  been  swapped out and pages that have been mapped but not used.
 
 RES  --  Resident size (kb)
 The non-swapped physical memory a task has used.
