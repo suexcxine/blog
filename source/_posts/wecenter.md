@@ -51,7 +51,7 @@ sudo pkill php5-fpm
 sudo service nginx restart
 ```
 
-继续安装, 配置mysql, 成功~
+继续, 配置mysql, 成功~
 
 ## 参考链接
 http://stackoverflow.com/questions/22721630/the-mcrypt-extension-is-missing-please-check-your-php-configuration
