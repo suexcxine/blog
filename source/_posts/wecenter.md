@@ -53,6 +53,11 @@ sudo service nginx restart
 
 继续, 配置mysql, 成功~
 
+## docker
+
+下面这个人的dockerfile可用于参考, 虽然我试了一下跑不起来... 
+https://hub.docker.com/r/lee2011/wecenter/
+
 ## 参考链接
 http://stackoverflow.com/questions/22721630/the-mcrypt-extension-is-missing-please-check-your-php-configuration
 
