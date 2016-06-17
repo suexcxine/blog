@@ -3,6 +3,7 @@ date: 2016-06-17 15:09:00
 tags: versioncontrol
 ---
 
+自己搭一个git server
 gogs与github有点不一样的地方, 坑了我...
 不过总体上gogs还是方便好用的
 <!--more-->
