@@ -48,3 +48,31 @@ Git代码库和普通目录之间的区别仅仅是有无.git目录
 ## Cloning Repositories
 > git clone ssh://<user>@<host>/path/to/repo.git
 
+## 遇到的问题
+
+###
+git clone时报错如下:
+```
+Failed to receive SOCKS4 connect request ack
+```
+在用代理且代理挂了? git的代理在哪里设的?
+如下解决
+```
+$ git config --global http.proxy 'socks5://127.0.0.1:1080'
+$ git config --global https.proxy 'socks5://127.0.0.1:1080'
+```
+
+### git push时报错如下:
+```
+error: src refspec master does not match any.
+```
+应该是没有commit就push了, 如下解决 
+```
+git add .
+git commit -m 'Initial Commit'
+git push -u origin master
+```
+
+参考链接
+http://stackoverflow.com/questions/4181861/src-refspec-master-does-not-match-any-when-pushing-commits-in-git
+
