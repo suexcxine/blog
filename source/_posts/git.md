@@ -50,8 +50,7 @@ Git代码库和普通目录之间的区别仅仅是有无.git目录
 
 ## 遇到的问题
 
-###
-git clone时报错如下:
+### git clone时报错如下:
 ```
 Failed to receive SOCKS4 connect request ack
 ```
