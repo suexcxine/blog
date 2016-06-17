@@ -8,6 +8,18 @@ gogs与github有点不一样的地方, 坑了我...
 不过总体上gogs还是方便好用的
 <!--more-->
 
+## docker-compose
+```
+gogs:
+  image: gogs/gogs
+  container_name: gogs
+  ports:
+    - "10022:22"
+    - "10080:3000"
+  volumes:
+    - /root/gogs:/data
+```
+
 ## 遇到的问题
 
 如下这样, 从https改到ssh,
