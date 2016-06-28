@@ -154,6 +154,7 @@ location / {
 #### listen
 
 可以是以下几种:
+
 * ip:port
 * ip(port默认80)
 * port(ip默认0.0.0.0)
@@ -193,11 +194,13 @@ modifier如下:
 即默认是正则表达式优先于prefix型,然而=或^~允许用户改变这种倾向
 
 例子:
+```
 location /site
 location = /page1
 location ~ \.(jpe?g|png|gif|ico)$
 location ~* \.(jpe?g|png|gif|ico)$
 location ^~ /costumes
+```
 
 #### index
 
