@@ -25,8 +25,33 @@ nginx检查http请求的Host头信息
 server_name www.example.*;
 server_name ~^(www|host1).*\.example\.com$;
 ```
+允许多个
+```
+server_name example.com www.example.com;
+server_name example.com linode.com icann.org;
+```
+允许不合法的域名, 反正nginx只是用来与request里的Host信息比较
+局域网等情况下有用
+```
+server_name localhost linode galloway;
+```
+空的server name表示无域名, 直接使用ip访问的请求
+```
+server_name "";
+```
 
 ### default_server
+这个选项表示默认, 即如果其他virtual host不匹配时, 使用这个
+```
+listen 80 default_server;
+listen [::]:80 default_server ipv6only=on;
+```
+允许多个listen语句,同时监听多个ip和端口
+```
+listen     12.34.56.77:80;
+listen     12.34.56.78:80;
+listen     12.34.56.79:80; 
+```
 
 ## location
 
@@ -37,14 +62,14 @@ location optional_modifier location_match {
 ```
 modifier如下:
 (none)  prefix匹配
-= 精确匹配
+= 精确匹配, 性能略高, 如果有些请求确实很热就适用
 ~ 大小写敏感的正则表达式匹配
 ~* 大小写不敏感的正则表达式匹配
 ^~ prefix匹配,且阻止后续的正则表达式匹配
 
-匹配算法如下:
-优先选择完全匹配的(即=型的),然后选择prefix(即none型的),选最长的,如果有^~,就定了,
-没有的话,先存着再往下看正则表达式型的,把与刚才存的匹配的正则表达式提到最上,然后顺序尝试匹配,
+匹配规则如下:
+优先选择完全匹配的(即=型的), 然后选择prefix(即none型和^~的),选最长的,如果有^~,就定了,
+没有的话,先存着这个最长的,再往下看正则表达式型的,
 找到一个匹配的正则表达式就定了(意味着顺序有影响),否则用之前存着的
 
 即默认是正则表达式优先于prefix型,然而=或^~允许用户改变这种倾向
@@ -59,6 +84,7 @@ location ^~ /costumes
 ```
 
 ### index
+当请求是目录而不是具体文件时使用的文件
 
 ### try_files
 
@@ -111,5 +137,5 @@ location /another {
 
 ## 参考链接
 https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms
-
+https://www.linode.com/docs/websites/nginx/how-to-configure-nginx
 
