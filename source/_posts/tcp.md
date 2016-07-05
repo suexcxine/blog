@@ -14,6 +14,24 @@ tags: [internet, tcp]
 
 ![断开tcp连接](/pics/tcp/tcp_close.gif)
 
+## keep alive
+
+* tcp_keepalive_time 最后一次数据交换到发送第一个keepalive探测包的间隔,默认值为7200s（2h）。
+* tcp_keepalive_probes 在tcp_keepalive_time之后,没有接收到对方确认,继续发送keepalive探测包次数，默认值为9（次）。
+* tcp_keepalive_intvl 在tcp_keepalive_time之后,没有接收到对方确认,继续发送keepalive探测包的时间间隔，默认值为75s。
+
+tcp_keepalive_intvl乘以tcp_keepalive_probes，就得到了从开始探测到放弃探测确定连接断开所需的时间
+
+例子: 修改/etc/sysctl.conf文件,
+```
+net.ipv4.tcp_keepalive_time=90
+net.ipv4.tcp_keepalive_intvl=15
+net.ipv4.tcp_keepalive_probes=2
+```
+执行sysctl -p生效, sysctl -a | grep keepalive可查看 
+
+
 ## 参考链接
 http://blog.csdn.net/whuslei/article/details/6667471
+
 
