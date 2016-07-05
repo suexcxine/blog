@@ -30,6 +30,10 @@ net.ipv4.tcp_keepalive_probes=2
 ```
 执行sysctl -p生效, sysctl -a | grep keepalive可查看 
 
+## tcp_retries
+
+* tcp_retries1 放弃回应一个TCP连接请求前﹐需要进行多少次重试。默认值3。
+* tcp_retries2 在丢弃激活(已建立通讯状况)的TCP连接之前﹐需要进行多少次重试。默认值为15。
 
 ## 参考链接
 http://blog.csdn.net/whuslei/article/details/6667471
