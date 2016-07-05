@@ -1,4 +1,4 @@
-title: tcp握手
+title: tcp
 date: 2016-06-13 15:49:00
 tags: [internet, tcp]
 ---
@@ -6,6 +6,8 @@ tags: [internet, tcp]
 继续回顾计算机网络的内容
 
 <!--more-->
+
+## 握手和挥手
 
 建立tcp连接需要三次握手: SYN, SYN+ACK, ACK
 断开tcp连接需要四次挥手: FIN, ACK, FIN, ACK
