@@ -1,4 +1,4 @@
-title: jit
+title: JIT
 date: 2016-07-5 16:28:00
 tags: [compiler]
 ---
