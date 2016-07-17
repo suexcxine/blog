@@ -22,3 +22,15 @@ sudo modprobe ath9k
 重启， 再查看lshw -C network, 如果状态变为disabled了，
 尝试Fn+F2, 笔记本电脑一般都有这个功能键可以禁用和启用wifi  
 
+## wifi经常断线的问题
+下载驱动: https://docs.google.com/file/d/0B7kbO9nS2qKEMmQ5elZXVUhDRjA/edit
+并按如下操作编译部署
+
+* 解压rt3290sta-2.6.0.0目录到/usr/src
+* 如果没装dkms, 则`sudo apt-get install dkms`
+* 执行`sudo dkms install -m rt3290sta -v 2.6.0.0 --force`
+* 重新启动
+
+## 参考链接
+http://askubuntu.com/questions/455030/ralink-rt3290-wifi-driver-is-not-working-in-ubuntu-14-04
+
