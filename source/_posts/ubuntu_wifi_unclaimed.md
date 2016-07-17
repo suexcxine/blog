@@ -14,5 +14,5 @@ sudo lshw -C network
 sudo modprobe ath9k
 ```
 重启， 再查看lshw -C network, 如果状态变为disabled了，
-尝试Fn+F2, 笔记本电脑一般都有这个功能键可以禁用和启用wifi 
+尝试Fn+F2, 笔记本电脑一般都有这个功能键可以禁用和启用wifi  
 
