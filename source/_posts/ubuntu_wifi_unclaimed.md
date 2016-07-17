@@ -10,6 +10,12 @@ tags: [ubuntu, linux, wifi]
 sudo lshw -C network
 ```
 发现Wireless interface那标记着"UNCLAIMED"
+我的无线网卡型号是
+<pre>
+product: RT3290 Wireless 802.11n 1T/1R PCIe
+vendor: Ralink corp.
+</pre>
+
 ```
 sudo modprobe ath9k
 ```
