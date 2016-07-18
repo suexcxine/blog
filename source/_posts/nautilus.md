@@ -4,6 +4,8 @@ tags: linux
 ---
 ## 安装open-terminal
 sudo apt-get install nautilus-open-terminal
+重启nautilus才能生效
+nautilus -q
 
 ## Ubuntu通过nautilus访问Windows共享文件夹的方法 
 
