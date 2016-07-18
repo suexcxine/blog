@@ -57,9 +57,11 @@ alias erl18='source /home/chenduo/erls/18.0/activate'
 ```
 
 ## 解除激活，查看当前激活版本, 查看当前状态
+```
 $ kerl_deactivate
 $ kerl active
 $ kerl status
+```
 
 ## centos 7.0 环境下安装
 yum install gcc openssl-devel ncurses-devel autoconf
