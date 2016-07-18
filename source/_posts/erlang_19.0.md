@@ -34,7 +34,7 @@ tags: erlang
 ### erts
 erlang:open_port(spawn, ...), 快3-5倍
 tracing, 大幅改进(可伸缩性,性能,send/receive上的match specification,支持lttng,...)
-dirty调试器改进
+dirty调度器改进
 单进程级的message_queue配置
 多module的快速加载
 增加一个process flag: max_heap_size
