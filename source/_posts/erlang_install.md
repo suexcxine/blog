@@ -37,7 +37,7 @@ sudo apt-get install tk8.5
 # 使用kerl安装更方便, 且能支持多个版本
 ## 安装R15B版本
 ```bash
-curl -O https://raw.githubusercontent.com/spawngrid/kerl/master/kerl
+curl -O https://raw.githubusercontent.com/kerl/kerl/master/kerl
 chmod a+x kerl
 sudo mv kerl /usr/local/bin/
 kerl update releases
@@ -55,6 +55,11 @@ kerl install 18.0 ~/erls/18.0
 alias erl15='source /home/chenduo/erls/R15B/activate'  
 alias erl18='source /home/chenduo/erls/18.0/activate'    
 ```
+
+## 解除激活，查看当前激活版本, 查看当前状态
+$ kerl_deactivate
+$ kerl active
+$ kerl status
 
 ## centos 7.0 环境下安装
 yum install gcc openssl-devel ncurses-devel autoconf

@@ -6,7 +6,8 @@ tags: [linux, erlang]
 sudo apt-get install vim
 
 ## 安装vundle
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 拷贝github上的.vimrc的部分到自己的.vimrc
 进入vim执行:PluginInstall
 sudo apt-get install cscope
