@@ -1,6 +1,6 @@
 title: go语言槽点
 date: 2016-07-19 21:27:00
-tags: linux
+tags: go
 ---
 
 想起一条写一条
