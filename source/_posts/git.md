@@ -72,6 +72,12 @@ git commit -m 'Initial Commit'
 git push -u origin master
 ```
 
+### 从https改为使用ssh
+这样就不用输密码了
+```
+git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
+```
+
 参考链接
 http://stackoverflow.com/questions/4181861/src-refspec-master-does-not-match-any-when-pushing-commits-in-git
 
