@@ -48,6 +48,20 @@ Git代码库和普通目录之间的区别仅仅是有无.git目录
 ## Cloning Repositories
 > git clone ssh://<user>@<host>/path/to/repo.git
 
+### 从https改为使用ssh
+这样就不用输密码了
+```
+git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
+```
+
+### 同步主干分支
+git remote -v
+git remote add upstream git@github.com:username/repository.git
+git fetch upstream
+git checkout master
+git merge upstream/master
+git push
+
 ## 遇到的问题
 
 ### git clone时报错如下:
@@ -70,12 +84,6 @@ error: src refspec master does not match any.
 git add .
 git commit -m 'Initial Commit'
 git push -u origin master
-```
-
-### 从https改为使用ssh
-这样就不用输密码了
-```
-git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
 ```
 
 参考链接
