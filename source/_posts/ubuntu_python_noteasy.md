@@ -6,6 +6,8 @@ tags: [linux, python]
 由于Ubuntu 14.04的python版本是2.7.6, 觉得不够用了, 上上周自己编译了一个2.7.12版,
 默认装在/usr/local/lib下, 结果出了不少问题
 
+<!--more-->
+
 因为Ubuntu内部多处用到了python, 不能影响到系统用的python
 
 which python返回的是2.7.12版的python, 但是进去之后pip安装的库访问不到...
