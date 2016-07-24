@@ -55,12 +55,14 @@ git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
 ```
 
 ### 同步主干分支
+```
 git remote -v
 git remote add upstream git@github.com:username/repository.git
 git fetch upstream
 git checkout master
 git merge upstream/master
 git push
+```
 
 ## 遇到的问题
 
