@@ -64,6 +64,9 @@ git merge upstream/master
 git push
 ```
 
+### 编译安装git
+https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+
 ## 遇到的问题
 
 ### git clone时报错如下:
