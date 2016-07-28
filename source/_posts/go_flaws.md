@@ -8,7 +8,8 @@ tags: go
 ## 定义类型的地方允许`x, y, z int`这种写法表示x, y, z均为int型
 可读性不好
 
-## 没有重载, 许多package里看到大片的XXXInt, XXXInt64, XXXUint64, ...
+## 没有重载
+许多package里看到大片的XXXInt, XXXInt64, XXXUint64, ...
 视觉污染, 写代码麻烦, 改代码也麻烦
 
 ## defer
