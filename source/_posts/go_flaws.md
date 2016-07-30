@@ -14,7 +14,7 @@ tags: go
 
 ## defer
 * 可读性不好, 本身就已经颠覆了一般性的顺序执行思维, 多条defer在一起还是LIFO顺序
-还是像其他语言那样try finally比较好
+还是像其他语言那样try finally比较好, 或者像python, C#那样有with语句更好,
 * 容易引发bug, 因为defer可以修改return语句的值, 使得return语句处具有不确定性,
 使得程序员容易搞错
 
