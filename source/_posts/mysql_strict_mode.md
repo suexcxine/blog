@@ -32,7 +32,21 @@ SET @@global.sql_mode= 'NO_ENGINE_SUBSTITUTION';
 从my.cnf配置中去掉STRICT_TRANS_TABLES以免下次mysql启动时再变成strict mode
 
 # Recommended in standard MySQL setup
+[mysqld]
 sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
+
+## NO_ZERO_DATE
+As of MySQL 5.7.4, NO_ZERO_DATE is deprecated. 
+In MySQL 5.7.4 through 5.7.7, NO_ZERO_DATE does nothing when named explicitly. 
+Instead, its effect is included in the effects of strict SQL mode. 
+In MySQL 5.7.8 and later, NO_ZERO_DATE does have an effect when named explicitly and is not part of strict mode, as before MySQL 5.7.4. 
+However, it should be used in conjunction with strict mode and is enabled by default. 
+A warning occurs if NO_ZERO_DATE is enabled without also enabling strict mode or vice versa.
+
+使用NO_ZERO_DATE之后insert时会报如下错误:
+```
+ERROR 1292 (22007): Incorrect datetime value: '0000-00-00 00:00:00' for column 'updated' at row 1
+```
 
 ## 参考链接
 http://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-strict
