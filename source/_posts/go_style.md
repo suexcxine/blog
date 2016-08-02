@@ -3,6 +3,10 @@ date: 2016-08-02 22:30:00
 tags: [go]
 ---
 
+编码规范统一,很有必要
+
+<!--more-->
+
 * 注释要用完整的句子,以函数名开头,以逗号结束,这样比较好排,可读性也好,也方便grep文档.
 
 * 定义空slice时,用var t []string而不是t := []string{},在这个slice不被append时,前者不占用内存.
@@ -58,7 +62,7 @@ if err != nil {
 * Test Case失败应该给出input,output和expect的值,要不然不明不白,先写output再写expect.
 ```
 if got != tt.want {
-    t.Errorf("Foo(%q) = %d; want %d", tt.in, got, tt.want) // or Fatalf, if test can't test anything more past this point
+    t.Errorf("Foo(%q) = %d; want %d", tt.in, got, tt.want)
 }
 ```
 
