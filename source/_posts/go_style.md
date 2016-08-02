@@ -70,3 +70,6 @@ if got != tt.want {
 
 * 错误处理的原则就是不能丢弃任何有返回err的调用，不要采用_丢弃，必须全部处理.
 
+## 参考链接
+https://github.com/golang/go/wiki/CodeReviewComments
+
