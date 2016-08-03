@@ -31,6 +31,7 @@ tags: go
 ## closure做得不对
 直接定义一个匿名函数,函数用到的外部变量并不是当时的变量快照,而是一个引用,
 想要真正的closure需要用传参来做.
+https://www.goinggo.net/2014/06/pitfalls-with-closures-in-go.html
 
 # 优点
 
