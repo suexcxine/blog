@@ -48,6 +48,15 @@ A warning occurs if NO_ZERO_DATE is enabled without also enabling strict mode or
 ERROR 1292 (22007): Incorrect datetime value: '0000-00-00 00:00:00' for column 'updated' at row 1
 ```
 
+## TIMESTAMP类型字段的默认值
+0可以, 
+CURRENT_TIMESTAMP可以
+'0000-00-00 00:00:00'不行, 
+'1970-01-01 00:00:00'不行, 
+'1970-01-01 00:00:01'不行, 
+'1970-01-02 00:00:00'可以, 
+原因可能与mysql版本及sql_mode有关,暂不深究
+
 ## 参考链接
 http://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-strict
 http://www.tocker.ca/2014/01/14/making-strict-sql_mode-the-default.html
