@@ -170,3 +170,8 @@ fastcgi_param  SCRIPT_FILENAME  \$document_root$fastcgi_script_name;
 也没问题
 
 结论:路径配错了
+
+### 提示缺少mysqli扩展
+```
+sudo aptitude install php5-mysql
+```
