@@ -65,7 +65,9 @@ git clean -f
 git checkout <commit> <file>
 退到HEAD之前一个版本
 git reset HEAD~1 
-删除commit在多人协作时可能会产生严重后果,其他人需要从被删除的commit之前开始将他们的commit一一合并过来,过程中很可能有许多冲突,所以不要reset公共commit(私人的无所谓)而是用一个新的commit盖掉不想要的commits
+删除commit在多人协作时可能会产生严重后果,
+其他人需要从被删除的commit之前开始将他们的commit一一合并过来,过程中很可能有许多冲突,
+所以不要reset公共commit(私人的无所谓)而是用一个新的commit盖掉不想要的commits
 git revert <commit-id>
 修改最近一次commit
 git commit --amend
