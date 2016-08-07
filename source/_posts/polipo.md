@@ -51,9 +51,8 @@ http://localhost:8123/
 ## 手动编译
 
 编译后在后台启动
-```
-$ sudo polipo daemonise=true logFile="/var/log/polipo.log"
-```
+
+    $ sudo polipo daemonise=true logFile="/var/log/polipo.log"
 
 ## 参考链接
 https://github.com/jech/polipo/blob/master/INSTALL
