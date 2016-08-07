@@ -33,6 +33,8 @@ tags: go
 想要真正的closure需要用传参来做.
 https://www.goinggo.net/2014/06/pitfalls-with-closures-in-go.html
 
+## 没有泛型
+
 # 优点
 
 ## gofmt
