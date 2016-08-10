@@ -20,6 +20,7 @@ READ COMMITED满足一个事物开始时，只能“看见”已经提交的事�
 
 client1上start transaction;后insert一条,
 client2使用READ UNCOMMITED可以看到
+
 <pre>
 mysql> set session transaction isolation level READ UNCOMMITTED;
 Query OK, 0 rows affected (0.01 sec)
@@ -33,7 +34,9 @@ mysql> select * from tag_perm;
 |  72 |      3 |       3 | 2016-08-10 13:50:45 | 2016-08-10 13:50:45 |
 +-----+--------+---------+---------------------+---------------------+
 </pre>
+
 改为READ COMMITED后就看不到了
+
 <pre>
 mysql> set session transaction isolation level READ COMMITTED;
 Query OK, 0 rows affected (0.00 sec)
@@ -46,6 +49,7 @@ mysql> select * from tag_perm;
 |  71 |      2 |       3 | 2016-08-10 13:50:45 | 2016-08-10 13:50:45 |
 +-----+--------+---------+---------------------+---------------------+
 </pre>
+
 client1上commit,
 client2上READ COMMITED可以看到了
 
