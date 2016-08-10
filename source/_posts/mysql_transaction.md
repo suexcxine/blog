@@ -11,7 +11,7 @@ InnoDB使用不同的锁策略来支持不同的事务隔离级别.
 COMMIT意味着变更确定持久化, ROLLBACK意味着放弃尚未持久化的变更, 两个操作都会释放锁.
 
 transaction里select和update两句话之间有可能执行其他transaction的update语句么? || 有可能
-具体说来,在我update之前, 这个select的行会被其他transaction读到吗? || 会, 连SERILIZABLE都靠不住
+在update之前, 这个select的行会被其他transaction读到吗? || 会, 连SERILIZABLE都靠不住
 
 ## READ UNCOMMITED 与 READ COMMITED
 
