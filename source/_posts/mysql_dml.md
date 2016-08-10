@@ -55,6 +55,9 @@ alter table orderitems
 add constraint fk_orderitems_orders
 foreign key (order_num) references orders (order_num);
 
+修改自增列的起点值
+ALTER TABLE penguins AUTO_INCREMENT=1001;
+
 查看指定表的create语句
 show create table tablename
 
