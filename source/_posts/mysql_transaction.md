@@ -13,6 +13,8 @@ COMMIT意味着变更确定持久化, ROLLBACK意味着放弃尚未持久化的�
 transaction里select和update两句话之间有可能执行其他transaction的update语句么? || 有可能
 在update之前, 这个select的行会被其他transaction读到吗? || 会, 连SERILIZABLE都靠不住
 
+<!--more-->
+
 ## READ UNCOMMITED 与 READ COMMITED
 
 READ UNCOMMITED可以读到未COMMIT的内容, 这叫脏读
