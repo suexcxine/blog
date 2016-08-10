@@ -115,3 +115,6 @@ update时都update tablename set cnt = 1; 就错了
 不过这里主要想说的是即使是SERILIZABLE也不是能完全放心的,
 还是要小心啊, 真实业务不会像这里的例子这样单纯
 
+## 参考链接
+http://dev.mysql.com/doc/refman/5.7/en/innodb-transaction-model.html
+
