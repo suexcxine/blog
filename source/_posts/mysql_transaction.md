@@ -54,7 +54,7 @@ client1上commit,
 client2上READ COMMITED可以看到了
 
 
-## READ COMMITED 与 REPEATABLE READ
+# READ COMMITED 与 REPEATABLE READ
 
 
 client2开始transaction, select数据
