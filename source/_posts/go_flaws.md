@@ -35,6 +35,10 @@ https://www.goinggo.net/2014/06/pitfalls-with-closures-in-go.html
 
 ## 没有泛型
 
+## 返回error
+每一层函数调用都要check一遍,到处都充斥着if err != nil
+中间层函数只是因为调到了返回error的函数,自己的返回值也被迫加上error
+
 # 优点
 
 ## gofmt
