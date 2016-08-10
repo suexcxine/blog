@@ -9,6 +9,7 @@ tags: [db]
 mysql -u root -p game < mysql.sql
 mysqldump -u username -p dbname > backupfile.sql
 mysqldump -u username -p dbname tablename > backup.sql
+mysqldump -u username -p dbname tablename --where='id<1000000' > backup.sql || 这样可以部分导出
 
 mysqlhotcopy
 flush tables; 确保所有数据被写到磁盘,包括索引数据
