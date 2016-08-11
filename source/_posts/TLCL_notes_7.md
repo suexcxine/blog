@@ -16,6 +16,10 @@ tags: [linux, bash]
 ```
 [me@linuxbox ~]$ ls -l /bin/usr &> ls-output.txt
 ```
+或
+```
+[me@linuxbox ~]$ ls -l /bin/usr > ls-output.txt 2>&1
+```
 为了隐瞒命令错误信息，我们这样做：
 ```
 [me@linuxbox ~]$ ls -l /bin/usr 2> /dev/null
