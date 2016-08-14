@@ -45,6 +45,7 @@ https://github.com/golang/go/wiki/CodeReviewComments#declaring-empty-slices
 
 slice内部包含一个指向array某一个元素的指针和长度
 以及以此元素为起点的cap值. 类似于type Slice struct { p, len, cap }这种感觉
+所以len(slice)不需要遍历,是O(1)的
 
 可以像下面这样将slice扩展到末尾
 
