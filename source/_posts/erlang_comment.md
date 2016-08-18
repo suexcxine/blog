@@ -1,4 +1,4 @@
-title: erlang并行及性能
+title: 对erlang并行及性能的精彩评论
 date: 2016-08-17 21:27:00
 tags: erlang
 ---
