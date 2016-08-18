@@ -40,6 +40,12 @@ https://www.goinggo.net/2014/06/pitfalls-with-closures-in-go.html
 每一层函数调用都要check一遍,到处都充斥着if err != nil
 中间层函数只是因为调到了返回error的函数,自己的返回值也被迫加上error
 
+## 没有条件表达式
+
+当然这个不是什么致命伤,
+但是需要的时候发现go代码写起来巨麻烦,
+其实希望最好像函数式编程那样一切都是表达式,if或case等都能有一个返回值
+
 # 优点
 
 ## gofmt
