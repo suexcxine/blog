@@ -43,6 +43,11 @@ IEEE 754规定，在计算机内部保存M时，默认这个数的第一位总�
 * E全为1
 这时，如果有效数字M全为0，表示±无穷大（正负取决于符号位s）；如果有效数字M不全为0，表示这个数不是一个数（NaN）。
 
+## 性能
+
+lua不用整型, 只用双精度浮点数, 据说性能不成问题, 甚至还更好
+http://lua-users.org/wiki/FloatingPoint
+
 ## 参考链接
 http://0.30000000000000004.com/
 http://www.ruanyifeng.com/blog/2010/06/ieee_floating-point_representation.html
