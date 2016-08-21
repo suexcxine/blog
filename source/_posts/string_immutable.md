@@ -10,6 +10,20 @@ String做成immutable的意义何在?
 
 # 安全
 
+### security
+
+网络连接,文件操作中,如果string可以被修改,那么可能某函数以为它操作的对象是XXX,但是其实不是,因为被改了(比如黑客改了),导致安全问题
+如下:
+```
+boolean connect(string s){
+    if (!isSecure(s)) {
+        throw new SecurityException();
+    }
+    // here will cause problem, if s is changed before this by using other references.
+    causeProblem(s);
+}
+```
+
 ### hash中用做key
 
 如果可变string做了hash的key, 以"a"为例,
@@ -22,6 +36,7 @@ hash表计算"a"的hash值找到了正确的位置, 但是当比较key时, 发�
 ### set
 
 假设String是可变的,那么下面的代码
+```
 HashSet<String> set = new HashSet<String>();
 set.add(new String("a"));
 set.add(new String("b"));
@@ -29,19 +44,8 @@ set.add(new String("c"));
 
 for(String a: set)
     a.value = "a";
+```
 将会使得Set中出现重复, 违背了Set的本义
-
-### security
-
-网络连接,文件操作中,如果string可以被修改,那么可能某函数以为它操作的对象是XXX,但是其实不是,因为被改了(比如黑客改了),导致安全问题
-如下:
-boolean connect(string s){
-    if (!isSecure(s)) {
-        throw new SecurityException();
-    }
-    // here will cause problem, if s is changed before this by using other references.
-    causeProblem(s);
-}
 
 # 并发(Thread Safe)
 
