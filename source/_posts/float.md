@@ -19,6 +19,8 @@ tags: [cs]
 0.1 + 0.2 = 0.30000000000000004是因为误差积累,
 由于二进制无法精确表示1/5, 所以0.1和0.2都无法精确表示, 用了一个最接近的近似表示,
 加起来之后误差积累, 超过了可以忽略的误差, 就变成0.30000000000000004了
+想要避免这类误差问题可以使用decimal floating point, 或者fixed-point,
+https://en.wikipedia.org/wiki/Decimal_floating_point
 
 ## 特殊规定
 
