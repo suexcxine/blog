@@ -18,7 +18,7 @@ tags: linux
 ```
 uname -r # 查看当前使用的内核版本, 这个版本不要删哦
 dpkg --list | grep linux-image # 查看已经安装的内核版本
-sudo apt-get purge linux-image-x.x.x.x-generic # 不要的都删
+sudo apt-get purge linux-image-x.x.x.x-generic
 sudo update-grub2 # 更新grub2
 ```
 
