@@ -1,4 +1,4 @@
-﻿title: 解决ubuntu 14.04下wifi功能突然丢失的问题
+title: 解决ubuntu 14.04下wifi功能突然丢失的问题
 date: 2016-07-17 11:17:00
 tags: [ubuntu, linux, wifi]
 ---
@@ -20,7 +20,7 @@ vendor: Ralink corp.
 sudo modprobe ath9k
 ```
 重启， 再查看lshw -C network, 如果状态变为disabled了，
-尝试Fn+F2, 笔记本电脑一般都有这个功能键可以禁用和启用wifi  
+尝试Fn+F2, 笔记本电脑一般都有这个功能键可以禁用和启用wifi
 
 ## wifi经常断线的问题
 下载驱动: https://docs.google.com/file/d/0B7kbO9nS2qKEMmQ5elZXVUhDRjA/edit
