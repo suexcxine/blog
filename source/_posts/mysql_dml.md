@@ -25,7 +25,7 @@ update customers set cust_email = 'elmer@fudd.com' where cust_id = 10005;
 注意update和delete语句一定要写where子句, 应用程序里最好把where子句为空的情况直接报错处理
 如果确实要对所有行更新,可以明确使用where 1,避免出现where子句忘写的bug情况
 
-update ignore customers set ... 
+update ignore customers set ...
 表示更新过程中即使出现错误也继续更新,不回滚
 
 ## delete
@@ -39,7 +39,7 @@ create if not exists 表示仅在不存在时创建表
 auto_increment必须被索引,且只能定义一列
 可以覆盖auto_increment列的值,后续增量将在该基础上继续
 
-select last_insert_id() 
+select last_insert_id()
 返回最后一个auto_increment的值
 
 default关键字
