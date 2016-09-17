@@ -36,6 +36,9 @@ tags: go
 想要真正的closure需要用传参来做.
 https://www.goinggo.net/2014/06/pitfalls-with-closures-in-go.html
 
+## 一个package可以对应多个文件
+函数定义还需要到别的文件里去找. import语句也重复了
+
 ## 没有泛型
 
 ## 返回error
