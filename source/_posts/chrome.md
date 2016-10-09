@@ -19,17 +19,16 @@ C-9             切换到最后一个标签页
 
 如果需要在打开新tab时trace network, 先在console里执行下面的语句
 就可以不打开新tab了
-```
-[].forEach.call(document.querySelectorAll('a'),
-    function(link){
-        if(link.attributes.target) {
-            link.attributes.target.value = '_self';
-        }
-    });
-window.open = function(url) {
-    location.href = url;
-};
-```
+
+    [].forEach.call(document.querySelectorAll('a'),
+        function(link){
+            if(link.attributes.target) {
+                link.attributes.target.value = '_self';
+            }
+        });
+    window.open = function(url) {
+        location.href = url;
+    };
 
 ## 参考链接
 http://stackoverflow.com/questions/16210468/chrome-dev-tools-how-to-trace-network-for-a-link-that-opens-a-new-tab
