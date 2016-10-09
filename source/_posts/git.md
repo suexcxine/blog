@@ -1,4 +1,4 @@
-﻿title: git
+title: git
 date: 2015-09-15
 tags: versioncontrol
 ---
@@ -29,7 +29,7 @@ git rm --cached <file>
 只显示已经stage的diff
 git diff --cached
 提交代码时还是不要用-m
-git commit 
+git commit
 这样会出一个编辑器,在里面多写几行注释
 </pre>
 
@@ -46,7 +46,7 @@ Tag是到commit的指针, 或者说别名
 新建tag
 git tag -a v1.0 -m "Stable release"
 显示tag列表
-git tag 
+git tag
 </pre>
 
 ## 撤销变更
@@ -64,7 +64,7 @@ git clean -f
 恢复单个文件到过去的某commit, 默认是HEAD
 git checkout <commit> <file>
 退到HEAD之前一个版本
-git reset HEAD~1 
+git reset HEAD~1
 删除commit在多人协作时可能会产生严重后果,
 其他人需要从被删除的commit之前开始将他们的commit一一合并过来,过程中很可能有许多冲突,
 所以不要reset公共commit(私人的无所谓)而是用一个新的commit盖掉不想要的commits
@@ -90,7 +90,7 @@ git branch -D <name>
 切换分支
 git checkout <branch>
 在detached HEAD state时(旧commit或远程分支)使用如下命令开辟实验分支
-git checkout -b <new-branch-name> 
+git checkout -b <new-branch-name>
 </pre>
 
 ## 合并
@@ -132,7 +132,7 @@ git merge origin/master
 但是这样会产生一条无意义的merge commit, 所以
 git rebase origin/master
 pull是fetch和merge的快捷方式
-git pull origin/master 
+git pull origin/master
 也可以用--rebase选项表示rebase
 git pull origin/master --rebase
 更新到远程代码库
@@ -171,7 +171,7 @@ git config --global alias.br branch
 </pre>
 
 git config --global push.default simple
- 
+
 ## 初始化
 > git init <path>
 
@@ -225,7 +225,7 @@ $ git config --global https.proxy 'socks5://127.0.0.1:1080'
 <pre>
 error: src refspec master does not match any.
 </pre>
-应该是没有commit就push了, 如下解决 
+应该是没有commit就push了, 如下解决
 <pre>
 git add .
 git commit -m 'Initial Commit'
