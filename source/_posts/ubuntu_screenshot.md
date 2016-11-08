@@ -5,3 +5,5 @@ tags: [ubuntu]
 
 System Settings -> Keyboard -> Shortcuts -> Screenshots
 
+## 可以截全网页的chrome插件
+Awesome Screenshot
