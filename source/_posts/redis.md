@@ -11,7 +11,7 @@ tags: [db]
 
 访问 redis instance
 用 slowlog len 先看看长度
-然后 slowlog get <count>
+然后 slowlog get count
 
 # redis 3.2 cluster
 
