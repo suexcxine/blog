@@ -8,7 +8,7 @@ tags: [internet, dns]
 
 在/root/dnsmasq_conf/dnsmasq.hosts文件里填写自己想要解析的域名
 ```
-# cat /root/dnsmasq_conf/dnsmasq.hosts 
+# cat /root/dnsmasq_conf/dnsmasq.hosts
 118.193.216.246 suexcxine.me
 ```
 启动dnsmasq服务, 上游服务器设为opendns的5353(防53的投毒)端口
@@ -23,7 +23,26 @@ ping suexcxine.me
 
 今后修改dnsmasq.hosts文件后, 可以如下reload
 ```
-docker exec -it dns kill -SIGHUP 1 
+docker exec -it dns kill -SIGHUP 1
 ```
 这样有一个做动态解析的可能
+
+## 关闭/禁用Ubuntu默认开启的dnsmasq服务
+
+Ubuntu 默认开启 dnsmasq 服务，占用了本机53端口，
+当需要在本机测试或使用其他 dns 服务器时，
+如何关闭 dnsmasq 服务而且重启电脑后 dnsmasq 服务不会重新被开启？
+
+```
+$ sudo vim /etc/NetworkManager/NetworkManager.conf
+```
+
+注释掉 dns=dnsmasq，如下：
+# dns=dnsmasq
+
+保存后重启 network-manager，
+```
+sudo restart network-manger
+```
+
 
