@@ -1,3 +1,9 @@
+title: websocket
+date: 2016-12-13
+tags: [internet]
+---
+WebSocket protocol 是HTML5一种新的协议。它实现了浏览器与服务器全双工通信(full-duplex)。
+<!--more-->
 ## websocket是为了解决什么问题
 
 很多网站为了实现推送技术，所用的技术都是polling(轮询)。轮询是在特定的的时间间隔（如每1秒），由浏览器对服务器发出HTTP request，然后由服务器返回最新的数据给客户端的浏览器。
