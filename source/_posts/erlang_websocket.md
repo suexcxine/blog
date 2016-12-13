@@ -12,7 +12,7 @@ WebSocket protocol 是HTML5一种新的协议。它实现了浏览器与服务�
 由于joe armstrong的例子:
 http://armstrongonsoftware.blogspot.com/2009/12/comet-is-dead-long-live-websockets.html
 已经过时,不符合现在的websocket标准,于是改写了一下
- 
+
 前端使用js发送websocket请求
 
 ## 测试
