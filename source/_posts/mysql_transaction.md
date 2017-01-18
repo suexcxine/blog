@@ -18,7 +18,7 @@ transaction里select和update两句话之间有可能执行其他transaction的u
 ## READ UNCOMMITED 与 READ COMMITED
 
 READ UNCOMMITED可以读到未COMMIT的内容, 这叫脏读
-READ COMMITED满足一个事物开始时，只能“看见”已经提交的事物做的修改。
+READ COMMITED满足一个事务开始时，只能“看见”已经提交的事务做的修改。
 
 client1上start transaction;后insert一条,
 client2使用READ UNCOMMITED可以看到
