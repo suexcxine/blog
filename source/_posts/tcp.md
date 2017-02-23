@@ -12,6 +12,8 @@ tags: [internet, tcp]
 建立tcp连接需要三次握手: SYN, SYN+ACK, ACK
 断开tcp连接需要四次挥手: FIN, ACK, FIN, ACK
 
+![tcp](/pics/tcp/tcp.gif)
+
 ![建立tcp连接](/pics/tcp/tcp_establish.gif)
 
 ![断开tcp连接](/pics/tcp/tcp_close.gif)
@@ -30,7 +32,7 @@ net.ipv4.tcp_keepalive_time=90
 net.ipv4.tcp_keepalive_intvl=15
 net.ipv4.tcp_keepalive_probes=2
 ```
-执行sysctl -p生效, sysctl -a | grep keepalive可查看 
+执行sysctl -p生效, sysctl -a | grep keepalive可查看
 
 ## tcp_retries
 
