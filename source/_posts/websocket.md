@@ -2,7 +2,7 @@ title: websocket
 date: 2016-12-13
 tags: [internet]
 ---
-WebSocket protocol 是HTML5一种新的协议。它实现了浏览器与服务器全双工通信(full-duplex)。
+WebSocket protocol 是HTML5的一种新协议。它实现了浏览器与服务器全双工通信(full-duplex)。
 <!--more-->
 ## websocket是为了解决什么问题
 
@@ -57,7 +57,7 @@ Sec-WebSocket-Accept: s3pPLMBiTxaQ9kYGzzhZRbK+xOo=
 RFC 6455(2011年)
 
 Frame format:
-​​
+
 ```
       0                   1                   2                   3
       0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
