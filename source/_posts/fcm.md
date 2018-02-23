@@ -30,3 +30,20 @@ fcm:push(test2, <<"eLeCIjv0u1Y:APA91bGwRLEOycNjLq5OPpwdIsxdn5aQcMbMu7DuRXU9RirWn
 fcm:push(test2, <<"/topics/testTopic">>, [{<<"data">>, [{<<"message">>, <<"a message">>}]}, {<<"notification">>, [{<<"title">>, <<"Title chenduo">>}, {<<"body">>, <<"Content chenduo">>}]}]).
 ```
 
+curl的示例
+```
+curl -i -H 'Content-type: application/json' -H 'Authorization: key=AAAAC53t-ac:APA91bHYDiZFPOYA5jwNedEv7TOCfQQncPtgXCpxpB1WwZ6oSsJu_3SGJ7poaqQpd8o1SQ5YUXpp1E5OWOQmjwKLEKLExcQtyS22bD_SI76OcmSQFYRSnl-NKJxW_QQsW2qbvmxmt7qU' -XPOST https://fcm.googleapis.com/fcm/send -d '{
+  "registration_ids":["eAK6S9KDGNw:APA91bF5sdf70uhCnmrMmV0ThfjhRToMFcbYMAt3HuT1apwUObXAhW4Sz-UG0IakS12brja4ItugGXqZQ9amWVm62-ZBoxeqWobGmR6_DsXa020O9yNWx_2T-SjnPeqsgT6Pagw8eUK-"],
+  "notification": {
+      "title":"Title of your notification",
+      "body":"content of your notification"
+  },
+  "data": {
+    "key1" : "value1",
+    "key2" : "value2",
+    "key3" : 23.56565,
+    "key4" : true
+  }
+}'
+```
+
