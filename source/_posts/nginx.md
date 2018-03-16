@@ -179,4 +179,5 @@ sudo aptitude install php5-mysql
 ### default_server
 
 通过HTTP请求中的Host值找不到对应的虚拟主机配置时, 会走default_server
+https://www.oschina.net/question/12_3565
 
