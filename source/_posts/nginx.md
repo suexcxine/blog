@@ -17,10 +17,10 @@ PCRE 支持正则表达式
 zlib
 OpenSSL
 
-## 目录 
+## 目录
 源代码存放目录
 编译中间文件存放目录, 默认为源代码目录下的objs目录
-部署目录 
+部署目录
 日志文件存放目录
 
 ## Linux内核参数优化
@@ -49,13 +49,13 @@ http://nginx.org/en/download.html
 ## 编译
 进入源码目录
 > ./configure --help
-> 
+>
 > --prefix=PATH	安装目录,会做为其他参数的相对目录,默认为/usr/local/nginx
 > --sbin-path=PATH	可执行文件路径
 > --conf-path=PATH	配置文件路径
 > --error-log-path=PATH	错误日志文件路径
 > --pid-path=PATH		pid文件存放路径,文件形式存储进程Id
-> --lock-path=PATH	
+> --lock-path=PATH
 
 ## ubuntu下安装nginx
 > sudo aptitude install nginx
@@ -63,7 +63,7 @@ http://nginx.org/en/download.html
 ### 查看版本和编译参数
 > $ nginx -V
 > nginx version: nginx/1.4.6 (Ubuntu)
-> built by gcc 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04) 
+> built by gcc 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04)
 > TLS SNI support enabled
 > configure arguments: --with-cc-opt='-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2' --with-ld-opt='-Wl,-Bsymbolic-functions -Wl,-z,relro' --prefix=/usr/share/nginx --conf-path=/etc/nginx/nginx.conf --http-log-path=/var/log/nginx/access.log --error-log-path=/var/log/nginx/error.log --lock-path=/var/lock/nginx.lock --pid-path=/run/nginx.pid --http-client-body-temp-path=/var/lib/nginx/body --http-fastcgi-temp-path=/var/lib/nginx/fastcgi --http-proxy-temp-path=/var/lib/nginx/proxy --http-scgi-temp-path=/var/lib/nginx/scgi --http-uwsgi-temp-path=/var/lib/nginx/uwsgi --with-debug --with-pcre-jit --with-ipv6 --with-http_ssl_module --with-http_stub_status_module --with-http_realip_module --with-http_addition_module --with-http_dav_module --with-http_geoip_module --with-http_gzip_static_module --with-http_image_filter_module --with-http_spdy_module --with-http_sub_module --with-http_xslt_module --with-mail --with-mail_ssl_module
 >
@@ -72,7 +72,7 @@ http://nginx.org/en/download.html
 > $ nginx -h
 > nginx version: nginx/1.4.6 (Ubuntu)
 > Usage: nginx [-?hvVtq] [-s signal] [-c filename] [-p prefix] [-g directives]
-> 
+>
 > Options:
 >   -?,-h         : this help
 >   -v            : show version and exit
@@ -115,17 +115,17 @@ chenduo  30447  0.0  0.0  15960  2168 pts/35   R+   21:45   0:00 grep --color=au
 ```
 
 /etc/nginx/nginx.conf里有如下一行:
-include /etc/nginx/sites-enabled/*; 
+include /etc/nginx/sites-enabled/*;
 找到对应的文件
 /etc/nginx/sites-enabled/default
 ```
-location ~ \.php$ {                                                          
-    fastcgi_split_path_info ^(.+\.php)(/.+)$;                                
-    fastcgi_pass unix:/var/run/php5-fpm.sock;                                
-    fastcgi_index index.php;                                                 
-    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;        
-    include fastcgi_params;                                                  
-} 
+location ~ \.php$ {
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    fastcgi_pass unix:/var/run/php5-fpm.sock;
+    fastcgi_index index.php;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    include fastcgi_params;
+}
 ```
 
 $ sudo /etc/init.d/nginx restart
@@ -144,7 +144,7 @@ include=/etc/php5/fpm/pool.d/*.conf
 ### 反向代理
 将收到的流量转发到其它url, 如下
 ```
-location / { 
+location / {
     proxy_pass http://redmine.suexcxine.cc:3000;
 }
 ```
@@ -175,3 +175,8 @@ fastcgi_param  SCRIPT_FILENAME  \$document_root$fastcgi_script_name;
 ```
 sudo aptitude install php5-mysql
 ```
+
+### default_server
+
+通过HTTP请求中的Host值找不到对应的虚拟主机配置时, 会走default_server
+
