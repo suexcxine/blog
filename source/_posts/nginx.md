@@ -181,3 +181,13 @@ sudo aptitude install php5-mysql
 通过HTTP请求中的Host值找不到对应的虚拟主机配置时, 会走default_server
 https://www.oschina.net/question/12_3565
 
+### reverse proxy IP forwarding
+
+```
+proxy_set_header X-Real-IP  $remote_addr;
+proxy_set_header X-Forwarded-For $remote_addr;
+proxy_set_header Host $host;
+proxy_pass http://127.0.0.1:8080;
+```
+https://www.digitalocean.com/community/questions/nginx-reverse-proxy-ip-forwarding
+
