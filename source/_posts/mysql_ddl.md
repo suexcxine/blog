@@ -46,7 +46,7 @@ select * from customers order by lastname, firstname collate latin1_general_cs;
 
 #### 遇到过的乱码问题
 有一次写到DB里的中文都变成问号了
-show variables 发现 character_set_database 是 latin1
+执行 show variables 发现 character_set_database 是 latin1
 查了很久, 最后执行下面的语句
 ```
 ALTER DATABASE databasename CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
