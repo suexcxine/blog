@@ -59,4 +59,6 @@ ALTER DATABASE databasename CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 CREATE DATABASE new_db CHARACTER SET utf8mb4 DEFAULT COLLATE utf8mb4_general_ci;
 ```
 
+https://stackoverflow.com/questions/22572558/how-to-set-character-set-database-and-collation-database-to-utf8-in-my-ini/45728067
+
 
