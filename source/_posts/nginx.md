@@ -172,7 +172,7 @@ fastcgi_param  SCRIPT_FILENAME  \$document_root$fastcgi_script_name;
 结论:路径配错了
 
 ### amazon linux 2 安装nginx和php
-```
+```bash
 sudo amazon-linux-extras install nginx1.12
 sudo amazon-linux-extras install php7.2
 ```
