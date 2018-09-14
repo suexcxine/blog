@@ -141,6 +141,14 @@ include=/etc/php5/fpm/pool.d/*.conf
 
 用户是www-data
 
+### amazon linux 2 安装nginx和php
+```bash
+sudo amazon-linux-extras install nginx1.12
+sudo amazon-linux-extras install php7.2
+```
+像下面这样访问测试nginx是否正常工作
+http://ec2-13-229-239-123.ap-southeast-1.compute.amazonaws.com/
+
 ### 反向代理
 将收到的流量转发到其它url, 如下
 ```
@@ -170,14 +178,6 @@ fastcgi_param  SCRIPT_FILENAME  \$document_root$fastcgi_script_name;
 也没问题
 
 结论:路径配错了
-
-### amazon linux 2 安装nginx和php
-```bash
-sudo amazon-linux-extras install nginx1.12
-sudo amazon-linux-extras install php7.2
-```
-像下面这样访问测试nginx是否正常工作
-http://ec2-13-229-239-123.ap-southeast-1.compute.amazonaws.com/
 
 ### 提示缺少mysqli扩展
 ```
