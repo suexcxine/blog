@@ -1,6 +1,6 @@
 title: 论我与专业 Devops 的差距
 date: 2018-09-28
-tags: [devops]
+tags: [devops, linux, centos]
 ---
 今天线上操作出了点小问题, 服务(a)崩了, 但不是马上崩, 而是十几分钟以后.
 
