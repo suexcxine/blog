@@ -3,6 +3,8 @@ date: 2018-10-10
 tags: [go]
 ---
 
+<!--more-->
+
 总结为以下几方面:
 厚势的运用
 死活
@@ -11,8 +13,6 @@ tags: [go]
 过分
 补棋
 先手交换
-
-<!--more-->
 
 sgf:
 [sgf](/attachments/go_replay_sgf/1.sgf)
