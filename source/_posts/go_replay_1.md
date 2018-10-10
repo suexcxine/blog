@@ -3,6 +3,8 @@ date: 2018-10-10
 tags: [go]
 ---
 
+加油
+
 <!--more-->
 
 总结为以下几方面:
@@ -14,8 +16,7 @@ tags: [go]
 补棋
 先手交换
 
-sgf:
-[sgf](/attachments/go_replay_sgf/1.sgf)
+[sgf下载](/attachments/go_replay_sgf/1.sgf)
 
 厚势不围空
 ![](/pics/go_replay1/1.png)
