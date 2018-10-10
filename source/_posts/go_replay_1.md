@@ -3,6 +3,8 @@ date: 2018-10-10
 tags: [go]
 ---
 
+<!--more-->
+
 ![](/pics/go_replay1/1.png)
 ![](/pics/go_replay1/2.png)
 ![](/pics/go_replay1/3.png)
