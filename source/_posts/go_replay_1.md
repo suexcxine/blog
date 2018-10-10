@@ -18,39 +18,38 @@ tags: [go]
 
 [sgf下载](/attachments/go_replay_sgf/1.sgf)
 
-厚势不围空
 ![](/pics/go_replay1/1.png)
-围太大
+厚势不围空
 ![](/pics/go_replay1/2.png)
-先手交换
+围太大
 ![](/pics/go_replay1/3.png)
-高效补棋
+先手交换
 ![](/pics/go_replay1/4.png)
-确保连接
+高效补棋
 ![](/pics/go_replay1/5.png)
-过分的棋, 没有封到头
+确保连接
 ![](/pics/go_replay1/6.png)
-又是过分的棋, 没有封到头
+过分的棋, 没有封到头
 ![](/pics/go_replay1/7.png)
-该补的棋要补
+又是过分的棋, 没有封到头
 ![](/pics/go_replay1/8.png)
 该补的棋要补
 ![](/pics/go_replay1/9.png)
-大的死活没看到
+该补的棋要补
 ![](/pics/go_replay1/10.png)
-又是过分的棋, 没有封到头
+大的死活没看到
 ![](/pics/go_replay1/11.png)
-单官废棋与大场的交换
+又是过分的棋, 没有封到头
 ![](/pics/go_replay1/12.png)
-过分
+单官废棋与大场的交换
 ![](/pics/go_replay1/13.png)
-死活没看到
+过分
 ![](/pics/go_replay1/14.png)
-废棋
+死活没看到
 ![](/pics/go_replay1/15.png)
 废棋
 ![](/pics/go_replay1/16.png)
-官子
+废棋
 ![](/pics/go_replay1/17.png)
 官子
 ![](/pics/go_replay1/18.png)
@@ -58,4 +57,5 @@ tags: [go]
 ![](/pics/go_replay1/19.png)
 官子
 ![](/pics/go_replay1/20.png)
+官子
 
