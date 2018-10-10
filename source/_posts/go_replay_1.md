@@ -14,6 +14,9 @@ tags: [go]
 
 <!--more-->
 
+sgf:
+[sgf](/attachments/go_replay_sgf/1.sgf)
+
 厚势不围空
 ![](/pics/go_replay1/1.png)
 围太大
