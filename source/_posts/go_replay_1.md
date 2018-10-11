@@ -3,11 +3,6 @@ date: 2018-10-10
 tags: [go]
 ---
 
-加油
-
-<!--more-->
-
-总结为以下几方面:
 * 厚势的运用
 * 死活
 * 官子
@@ -15,6 +10,8 @@ tags: [go]
 * 过分
 * 补棋
 * 先手交换
+
+<!--more-->
 
 [sgf下载](/attachments/go_replay_sgf/1.sgf)
 

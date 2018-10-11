@@ -3,13 +3,10 @@ date: 2018-10-11
 tags: [go]
 ---
 
-加油
-
-<!--more-->
-
-总结为以下几方面:
 * 死活计算不足
 * 封头
+
+<!--more-->
 
 [sgf下载](/attachments/go_replay_sgf/2.sgf)
 
