@@ -8,8 +8,8 @@ tags: [go]
 <!--more-->
 
 总结为以下几方面:
-死活计算不足
-封头
+* 死活计算不足
+* 封头
 
 [sgf下载](/attachments/go_replay_sgf/2.sgf)
 
