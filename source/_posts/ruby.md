@@ -1,6 +1,6 @@
 title: ruby问题集
 date: 2018-10-20
-tags: [ruby, rbenv, ssl]
+tags: [ruby, rbenv]
 ---
 据说是由于ruby官网用的 ssl 从 sha1 改到 sha256 导致的问题(完整的背景见参考链接)
 
