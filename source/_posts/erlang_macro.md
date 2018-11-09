@@ -4,7 +4,8 @@ tags: [erlang, macro]
 ---
 
 宏参数字符串化(Stringifying Macro Arguments)
-这个功能有时候还真挺有用的, 比如测试用例和打日志的时候 `??Arg`
+这个功能有时候还真挺有用的, 比如测试用例和打日志的时候.
+语法是: `??Arg`
 
 ```
 -define(TESTCALL(Call), io:format("Call ~s: ~w~n", [??Call, Call])).
