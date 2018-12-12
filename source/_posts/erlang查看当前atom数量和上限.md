@@ -41,5 +41,6 @@ lists:sublist(string:tokens(binary_to_list(erlang:system_info(info)),"\n"), 20).
 ### 另一种方法, crash_dump文件里也会有上述输出
 Ctrl+a并输入A,回车后可以产生crash_dump文件,还有core文件
 
-
+### 更新: OTP 20.0 新增
+erlang:system_info/1 atom_count and atom_limit
 
