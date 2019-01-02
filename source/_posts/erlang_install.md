@@ -90,6 +90,17 @@ Build failed.
 这是因为R15B是匹配wxWidgets2.8的, 而我机器上装的是3.0
 卸载3.0即可
 
+## mac下提示没有 fop 的问题, 用于生成文档
+```
+brew install fop
+```
+
+## 21.2 开始要求使用 openssl 1.1.1
+macos下如下安装依赖
+```
+brew upgrade openssl@1.1
+```
+
 # 参考链接:
 [otp安装wiki][1]
 [ubuntu下erlang源代码的编译与安装][2]
