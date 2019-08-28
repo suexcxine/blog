@@ -68,7 +68,7 @@ google_analytics: ''
 favicon: /pics/miku.jpg
 
 #你的头像url
-avatar:
+avatar: "/pics/miku.jpg"
 
 #是否开启分享
 share_jia: true
