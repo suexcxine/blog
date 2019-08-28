@@ -6,7 +6,7 @@ tags: design
 <!--more-->
 
 #### RBAC和ABAC
-RBAC其实就是ABAC, 的简化版
+RBAC其实就是ABAC, 的简化版,
 权限控制其实是一个 `predicate(params) -> bool`
 RBAC差不多是 `predicate(role, operation_type) -> bool`
 ABAC差不多是 `predicate(my_attrs[role, department, location, ...], operation_type, target_attrs[location, ...], environment[nowtime, ...]) -> bool`
