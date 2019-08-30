@@ -78,8 +78,8 @@ live2d:
   debug: false # 调试, 是否在控制台输出日志
   model:
     scale: 1
-    hHeadPos: 0.5
-    vHeadPos: 0.618
+    # hHeadPos: 0.5
+    # vHeadPos: 0.618
     use: live2d-widget-model-miku # npm-module package name
   display:
     superSample: 2
@@ -87,7 +87,7 @@ live2d:
     width: 200
     height: 400
     hOffset: 0
-    vOffset: -20
+    # vOffset: -20
   mobile:
     show: true # 手机中是否展示
     scale: 0.5
