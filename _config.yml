@@ -87,7 +87,7 @@ live2d:
     width: 200
     height: 400
     hOffset: 0
-    # vOffset: -20
+    vOffset: 50
   mobile:
     show: true # 手机中是否展示
     scale: 0.5
