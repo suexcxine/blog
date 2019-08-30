@@ -77,14 +77,21 @@ live2d:
   tagMode: false # 标签模式, 是否仅替换 live2d tag标签而非插入到所有页面中
   debug: false # 调试, 是否在控制台输出日志
   model:
+    scale: 1
+    hHeadPos: 0.5
+    vHeadPos: 0.618
     use: live2d-widget-model-miku # npm-module package name
-    # use: wanko # 博客根目录/live2d_models/ 下的目录名
-    # use: ./wives/wanko # 相对于博客根目录的路径
-    # use: https://cdn.jsdelivr.net/npm/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json # 你的自定义 url
   display:
-    position: right
+    superSample: 2
+    position: left
     width: 150
     height: 300
+    hOffset: 0
+    vOffset: -20
   mobile:
     show: true # 手机中是否展示
+    scale: 0.5
+  react:
+    opacityDefault: 0.7
+    opacityOnHover: 0.2
 
