@@ -161,7 +161,7 @@ https://www.rabbitmq.com/runtime.html#distribution-buffer
 
 +swt very_low
 
-+stbt d
++stbt db
 
 +zdbbl 81920
 
