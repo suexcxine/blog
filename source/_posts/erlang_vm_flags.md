@@ -15,7 +15,7 @@ mseg_alloc 分配的 carrier(称为 mbc: multi block carrier, 即一大块内存
 当需要使用内存时, 再从 carrier 内部找到一块能够满足需要的内存(称为 block)
 
 ### sys_alloc
-sys_alloc 分配的 carrier(称为 sbc: single block carrier, 这种 carrier 内只会有一个 block, 用于满足单个大块内存需求),
+sys_alloc 分配的 carrier(称为 sbc: single block carrier, 这种 carrier 内只会有一个 block, 用于满足单个大块内存需求)
 
 ## 记一次内存参数调优
 erlang:memory(total) 是 6G
@@ -133,7 +133,7 @@ https://stressgrid.com/blog/beam_cpu_usage/
 +stbt Rabbit MQ default
 https://www.rabbitmq.com/runtime.html#scheduler-bind-type
 
-somebody say using `+stbt ts` reduced context switching for 4 times
+someone says using `+stbt ts` reduced context switching for 4 times
 https://github.com/rabbitmq/rabbitmq-server/issues/612
 
 Whatsapp use tnnps
@@ -147,9 +147,9 @@ https://www.rabbitmq.com/runtime.html#distribution-buffer
 
 ## 最终选用的参数
 
-经过本地压力测试(10k websocket connections + 10k nsq message consumption, send binary to websocket)
-可能因为时间不够长(30 minutes, 根据 ferd 的博客, memory fragmentation 要数周才体现出来), 压力不够大,
-以下参数对比默认参数, RES 减少 10 % 多
+经过本地压力测试(10k websocket connections + 10k nsq message consumption per second, send those nsq binary to websocket)
+可能因为时间不够长(30 minutes, 然而根据 ferd 的博客, memory fragmentation 要数周才体现出来), 压力不够大,
+测试结果: 以下参数对比默认参数, RES 减少 10 % 多
 
 ```
 +P 1048576
