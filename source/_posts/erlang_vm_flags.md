@@ -77,6 +77,60 @@ linux report 的 RES 竟然是 12G
 ```
 根据该函数的doc来看, 该值应该在 0.80(80%)以上才正常
 
+### instrument:allocations
+```
+> :instrument.allocations
+{:ok,
+ {128, 233015472,
+  %{
+    jiffy: %{
+      binary: {0, 71325, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      drv_binary: {56252, 2907, 5212, 6400, 633, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      nif_internal: {128608, 2749, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0}
+    },
+    prim_file: %{
+      drv_binary: {0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+    },
+    spawn: %{drv_binary: {0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}},
+    system: %{
+      binary: {0, 251, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      driver: {0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      driver_control_data: {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0},
+      driver_mutex: {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      driver_rwlock: {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      driver_tsd: {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      drv_binary: {713173, 141795, 4301, 4045, 2001, 104, 1, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0},
+      drv_internal: {0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      microstate_accounting: {1, 29, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0},
+      nif_internal: {12, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      port: {0, 0, 68, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      port_data_lock: {2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+    },
+    tcp_inet: %{
+      driver_tid: {8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      driver_tsd: {8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+      drv_binary: {2, 260, 3928, 37343, 4713, 575, 2, 0, 0, 0, 3257, 5871, 0, 0, 0, 0, 0, 0},
+      drv_internal: {109, 10, 54143, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0},
+      port: {0, 0, 53852, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+    }
+  }}}
+```
+如下写了一个小函数来计算 histogram 里的总内存量
+```
+> f = fn(start, histogram) ->
+  :erlang.tuple_to_list(histogram)
+  |> Enum.reduce({start, 0}, fn(i, {size_level, acc}) -> {size_level * 2, i * size_level + acc}  end)
+end
+> f.(128, {2, 260, 3928, 37343, 4713, 575, 2, 0, 0, 0, 3257, 5871, 0, 0, 0, 0, 0, 0})
+{33554432, 2018289920}
+```
+显示绝大部分都是 tcp_inet 占用的, < 2018289920 (约2G)
+这里看起来是正常的
+
 ### 当时使用的内存参数
 ```
 > :erlang.system_info(:allocator)
@@ -105,9 +159,28 @@ linux report 的 RES 竟然是 12G
    ...
 ```
 
+### 尝试 disable binary_alloc
+```
++MBe false
+```
+disable 之后连 erlang:memory 都返回 :notsup 的错误, 看不了了.... :(
+压力测试下来比原参数 RES 占用可能少 20% 多的样子
+但是看不了 erlang:memory 等数据无法接受
+
+### 关于 background gc
+这个 background gc 每 10 分钟自动对几乎所有 process 做一次 fullsweep gc
+```
+for p <- :erlang.processes(),
+  {:status, :waiting} == :erlang.process_info(p, :status),
+  do: :erlang.garbage_collect(p)
+```
+发现改成 1 天一次以后, memory fragmentation 有逐渐改善(3 天后降下来 2G 左右)
+fullsweep gc 与 memory fragmentation 之间的关系还需要研究
+
 ### reference
 erts_alloc, instrument docs by erlang
 http://erlang.org/doc/man/erts_alloc.html
+http://erlang.org/doc/apps/erts/CarrierMigration.html
 http://blog.erlang.org/Memory-instrumentation-in-OTP-21/
 https://erlang.org/doc/man/instrument.html
 
@@ -179,3 +252,9 @@ https://www.rabbitmq.com/runtime.html#distribution-buffer
 erl flags doc
 http://erlang.org/doc/man/erl.html
 
+## TODO
+
+* +M<S>ramv <bool>
+* +M<S>acul <utilization>|de
+* carrier pool
+* carrier header size
