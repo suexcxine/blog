@@ -43,7 +43,7 @@ deploy:
   type: git
   repo:
       github: git@github.com:suexcxine/suexcxine.github.io.git,master
-      coding: git@git.coding.net:suexcxine/suexcxine.git,gitcafe-pages
+      # coding: git@git.coding.net:suexcxine/suexcxine.git,gitcafe-pages
 marked: {smartypants: false}
 jsonContent:
   meta: false

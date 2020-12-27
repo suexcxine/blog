@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "build": "hexo generate"
+  },
   "name": "hexo-site",
   "version": "0.0.0",
   "private": true,
@@ -18,6 +21,7 @@
     "hexo-renderer-marked": "^0.2.4",
     "hexo-renderer-stylus": "^0.2.0",
     "hexo-server": "^0.1.2",
+    "install": "^0.13.0",
     "live2d-widget-model-miku": "^1.0.5"
   }
 }
