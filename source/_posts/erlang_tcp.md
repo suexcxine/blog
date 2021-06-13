@@ -1,5 +1,6 @@
 title: erlang inet&tcp
 date: 2020-04-25
+
 tags: [erlang, tcp]
 ---
 ## gen_tcp:shutdown
@@ -18,12 +19,13 @@ tags: [erlang, tcp]
 
 ## inet_db:register_socket
 下面这种做法没有直接调用gen_tcp:accept而是伪装成使用了gen_tcp:accept
-gen_tcp:accept里面也就是调了lookup_socket和register_socket
-% patch up the socket so it looks like one we got from
-% gen_tcp:accept/1
-{ok, Mod} = inet_db:lookup_socket(LSock),
-% 内部调用erlang:port_set_data记录信息
-inet_db:register_socket(Sock, Mod),
+
+> gen_tcp:accept里面也就只是调了lookup_socket和register_socket
+> % patch up the socket so it looks like one we got from
+> % gen_tcp:accept/1
+> {ok, Mod} = inet_db:lookup_socket(LSock),
+> % 内部调用erlang:port_set_data记录信息
+> inet_db:register_socket(Sock, Mod),
 
 ## inet:getaddr
 检查是否支持ipv6
