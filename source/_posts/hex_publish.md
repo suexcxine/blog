@@ -26,11 +26,18 @@ mix hex.publish --revert 1.3.0
 # 然后再重发
 ```
 
-注意: 有时我们需要改变 package 的 name, 原因是 upstream 没人维护了, 
+> 注意: 有时我们需要改变 package 的 name, 原因是 upstream 没人维护了, 
+>
+> 那么我们需要把 mix.exs 里的 app 名和 package.name 都改成新的名称才可以, 
+>
+> 如果只改了 package.name, app 名没改, 那么包下载下来编译过不了
+>
 
-那么我们需要把 mix.exs 里的 app 名和 package.name 都改成新的名称才可以, 
+包上传好了, 现在在 mix.exs 用上, 然后用上又拍云的 mirror, 如下:
 
-如果只改了 package.name, app 名没改, 那么包下载下来编译过不了
+`HEX_MIRROR=https://hexpm.upyun.com mix deps.get`
+
+Enjoy!
 
 
 
