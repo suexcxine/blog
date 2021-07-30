@@ -65,13 +65,19 @@ ok
 
 总之算不上很好用, 而且这个 CData 还是 commercial 的
 
+## odbc driver
+
+网上逛了很久发现第三方的厂商主要就是 cdata 和 devart 两家, 都是商用的
+
+其他就是官方的, 比如 mysql, mariadb, sql server 各家自己出的
+
 ## 参考链接
 
 excel 的 format 链接如下:
 
-[loc的pdf](https://www.loc.gov/preservation/digital/formats/digformatspecs/Excel97-2007BinaryFileFormat(xls)Specification.pdf)
+https://www.loc.gov/preservation/digital/formats/digformatspecs/Excel97-2007BinaryFileFormat(xls)Specification.pdf
 
-[openoffice的pdf](http://www.openoffice.org/sc/excelfileformat.pdf)
+http://www.openoffice.org/sc/excelfileformat.pdf
 
 odbc相关链接
 
