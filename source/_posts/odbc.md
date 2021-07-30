@@ -8,7 +8,11 @@ tags: [odbc, erlang]
 
 <!--more-->
 
-从 erlang mail list(http://erlang.org/pipermail/erlang-questions/2009-April/043094.html)这里读到可以通过 odbc 来读 excel, 就不用再去读 excel 的各个版本的 format(几百页...) 了
+从 erlang mail list
+
+http://erlang.org/pipermail/erlang-questions/2009-April/043094.html
+
+这里读到可以通过 odbc 来读 excel, 就不用再去读 excel 的各个版本的 format(几百页...) 了
 
 立即着手去找 excel 的 odbc driver, 结果只找到一个 cdata 出的商业版的, 
 
