@@ -101,12 +101,29 @@ macos下如下安装依赖
 brew upgrade openssl@1.1
 ```
 
+
+
+### 非完整安装的情形
+
+有时只装了 erlang-base 和一些要用的 package
+
+遇到过这样的报错, 装 exoffice 过程中遇到的, 因为没有parsetools, 然后又没有 hrl 头文件
+
+```shell
+Could not compile "src/link_text_parser.yrl" because the application "parsetools" could not be found. This may happen if your package manager broke Erlang into multiple packages and may be fixed by installing the missing "erlang-dev" and "erlang-parsetools" packages
+
+/usr/lib/erlang/lib/parsetools-2.2/include/yeccpre.hrl: no such file or directory
+```
+
+apt install erlang-parsetools erlang-dev 就可以了, 视情况可能需要指定版本
+
 # 参考链接:
+
 [otp安装wiki][1]
 [ubuntu下erlang源代码的编译与安装][2]
 [kerl的github][3]
 
-  [1]: https://github.com/erlang/otp/wiki/Installation
-  [2]: http://cryolite.iteye.com/blog/356419
-  [3]: https://github.com/yrashk/kerl
+[1]: https://github.com/erlang/otp/wiki/Installation
+[2]: http://cryolite.iteye.com/blog/356419
+[3]: https://github.com/yrashk/kerl
 
