@@ -73,3 +73,11 @@ excel 的 format 链接如下:
 
 [openoffice的pdf](http://www.openoffice.org/sc/excelfileformat.pdf)
 
+odbc相关链接
+
+http://www.unixodbc.org/
+
+https://www.cdata.com/drivers/excel/download/odbc/#macos
+
+https://www.connectionstrings.com/
+
