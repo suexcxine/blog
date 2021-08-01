@@ -37,7 +37,7 @@ ok
 ok
 ```
 
-java 侧也显示收到了消息 `{call,#Pid<haha@127.0.0.1.90.0>,{foo,100}}`, 并返回了`{#Pid<j1@127.0.0.1.1.0>,200}`, 如下
+
 
 ```
 <- ACCEPT FROM com.ericsson.otp.erlang.OtpSocketTransport@1bec2ee2
