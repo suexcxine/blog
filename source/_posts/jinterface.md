@@ -37,7 +37,7 @@ ok
 ok
 ```
 
-java 侧也显示收到了消息 `{foo,100}`, 并返回了`200`, 如下
+java 侧也显示收到了消息 `{foo,100}`和`{bar,100}`, 并返回了`101`和`200`, 如下
 
 ```
 <- ACCEPT FROM com.ericsson.otp.erlang.OtpSocketTransport@1bec2ee2
