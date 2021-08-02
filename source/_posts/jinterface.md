@@ -59,7 +59,11 @@ message: {#Pid<haha@127.0.0.1.90.0>, {bar, 100}}
    {#Pid<j1@127.0.0.1.1.0>,200}
 ```
 
+还, 不, 错, 吧
 
+不过现在与其他(foreign)系统交互基本都通过 http 或 grpc 了, 没啥人用 erlang distribution 
+
+可惜了
 
 ## 源码
 
