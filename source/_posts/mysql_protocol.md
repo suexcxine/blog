@@ -46,6 +46,8 @@ myxql:
 >>
 ```
 
+参考: https://dev.mysql.com/doc/internals/en/connection-phase-packets.html#packet-Protocol::HandshakeResponse
+
 可以看到除了 capabilities_flags 和 max_packet_size 之外, 就只在末尾多了一个字段, 也就是 auth_plugin_name, 
 
 值为 "mysql_native_password"
@@ -53,6 +55,29 @@ myxql:
 于是我把这个字段在 mysql-otp 也加上, 问题就解决了~
 
 PR: https://github.com/mysql-otp/mysql-otp/pull/178
+
+### HandshakeV10
+
+从 mysql server 收到的 initial handshake packet
+
+```erlang
+<<
+(10)(protocol version),
+(53,46,55,46,50,56,45,108,111,103,0)(mysql version),
+(207,125,157,32)(connection id),
+(74,70,74,33,71,103,56,80)(auth-plugin-data-part-1),
+(0)(filler),
+(223,247)(capability flags lower 2 bytes),
+(33)(character set),
+(2,0)(status flags),
+(15,1)(capability flags upper 2 bytes),
+(21)(length of auth-plugin-data),
+(0,0,0,0,0,0,0,0,0,0)(reserved),
+(65,49,40,59,69,52,36,65,102,60,91,64,0)(auth-plugin-data-part-2),(109,121,115,113,108,95,110,97,116,105,118,101,95,112,97,115,115,119,111,114,100,0)(auth-plugin name)
+>>
+```
+
+参考: https://dev.mysql.com/doc/internals/en/connection-phase-packets.html#packet-Protocol::Handshake
 
 ### capabilities flags
 
@@ -82,6 +107,3 @@ CLIENT_FOUND_ROWS, 16#00000002
 
 ### To Be Continued
 
-## 参考链接
-
-https://dev.mysql.com/doc/internals/en/connection-phase-packets.html#packet-Protocol::HandshakeResponse
