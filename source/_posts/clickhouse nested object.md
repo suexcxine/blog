@@ -22,9 +22,7 @@ Nested object 给业务端的感觉是这是一个表中表, 然而存储上其�
 
 本地表和分布式表都加得很顺利, 检查历史数据的新字段的值, 都是类似 [0, 0, 0] 这样的值, 长度与现有的其他 nested object 字段相同, 说明 clickhouse 的本地表还是挺贴心的
 
-当重建 kafka 引擎表时, 由于应用端打的点(json格式的)里还没有加上新字段[^2], kafka引擎表在消费这些数据时就报错[^3]了, 而且, 一报错就卡住不消费了, 后面有正常消息也不会消费
-
-![image-20210805134223759](file:///Users/chenduo/Library/Application%20Support/typora-user-images/image-20210805134223759.png?lastModify=1628142139)
+当重建 kafka 引擎表时, 由于应用端打的点(json格式的)里还没有加上新字段[^2], kafka引擎表在消费这些数据时就报错[^3]了, 而且, 一报错(DB::Exception: Elements 'objectname.old_field' and 'objectname.new_field' of Nested data structure 'objectname' (Array columns) have different array sizes.)就卡住不消费了, 后面有正常消息也不会消费
 
 看到 kafka 的 topic 积压的消息数字越来越大, 心里有点慌
 
