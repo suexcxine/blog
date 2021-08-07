@@ -10,7 +10,7 @@ tags: [clickhouse, olap]
 
 说在前面, 我使用的是阿里云托管版 clickhouse, 20.3.10.75 
 
-用这个东西当然是为了 denormalization , 也就是为了性能, 因为 join 太重了
+用 nested object 这个东西当然是为了 denormalization , 也就是为了性能, 因为 join 太重了
 
 Nested object 给业务端的感觉是这是一个表中表, 然而存储上其实它的每个字段都是一个 array, 而且强制要求各字段array的长度必须相等(否则就乱套了)
 
@@ -37,8 +37,6 @@ Nested object 给业务端的感觉是这是一个表中表, 然而存储上其�
 * select 语句中, as 后面的别名里不允许带 dot(.) 
 
 
-
-## 注
 
 [^1]:  分布式表晚加是因为 check on use , 如果先加的话加的动作本身会成功但是用的时候发现本地表没这个字段就会报错
 [^2]: 想着是数据库先兼容, 因为我担心先更新应用的话, 数据库看到不认识的字段会报错
