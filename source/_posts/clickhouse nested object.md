@@ -16,13 +16,13 @@ Nested object 给业务端的感觉是这是一个表中表, 然而存储上其�
 
 ## 问题和解决过程 
 
-我遇到了什么问题呢? 就是之前我给 clickhouse 的大宽表加字段都是无脑轻松加, 先给本地表 alter table add column, 然后给分布式表[^1] alter table add column , 然后 drop materialized view 和 kafka engine table , 最后重建 kafka engine table 和 materialzied view , 事情就成了
+我遇到了什么问题呢? 就是之前我给 clickhouse 的大宽表加字段都是无脑轻松加, 先给本地表 alter table add column, 然后给分布式表[^1](分布式表晚加是因为 check on use , 如果先加的话加的动作本身会成功但是用的时候发现本地表没这个字段就会报错) alter table add column , 然后 drop materialized view 和 kafka engine table , 最后重建 kafka engine table 和 materialzied view , 事情就成了
 
 然而现在, 因为加的是 nested object 的字段, 就出了问题
 
 本地表和分布式表都加得很顺利, 检查历史数据的新字段的值, 都是类似 [0, 0, 0] 这样的值, 长度与现有的其他 nested object 字段相同, 说明 clickhouse 的本地表还是挺贴心的
 
-当重建 kafka 引擎表时, 由于应用端打的点(json格式的)里还没有加上新字段[^2], kafka引擎表在消费这些数据时就报错[^3]了, 而且, 一报错(DB::Exception: Elements 'objectname.old_field' and 'objectname.new_field' of Nested data structure 'objectname' (Array columns) have different array sizes.)就卡住不消费了, 后面有正常消息也不会消费
+当重建 kafka 引擎表时, 由于应用端打的点(json格式的)里还没有加上新字段[^2](想着是数据库先兼容, 因为我担心先更新应用的话, 数据库看到不认识的字段会报错), kafka引擎表在消费这些数据时就报错[^3](这里不得不吐槽一下阿里云托管版 clickhouse, 连日志也不给看, 需要提工单找阿里云的人帮忙看日志)了, 而且, 一报错(DB::Exception: Elements 'objectname.old_field' and 'objectname.new_field' of Nested data structure 'objectname' (Array columns) have different array sizes.)就卡住不消费了, 后面有正常消息也不会消费
 
 看到 kafka 的 topic 积压的消息数字越来越大, 心里有点慌
 
@@ -35,10 +35,4 @@ Nested object 给业务端的感觉是这是一个表中表, 然而存储上其�
 * nested object 的各个 array 字段的长度必须相同, clickhouse 本地表在 insert 时如果缺字段会自动给默认值, 即如果 nested object 有三个字段, insert 时只指定了两个字段, 那么剩下的那个字段会有默认值, 长度自动适配其他字段
 * kafka 引擎表的 kafka_skip_broken_messages = N 这个配置, 表示处理一个 block 时会忽略 N 条 broken 消息, 啥叫 broken 呢, 比如非法 json, 呃, nested object 字段缺或者长度不一致也算..
 * select 语句中, as 后面的别名里不允许带 dot(.) 
-
-
-
-[^1]:  分布式表晚加是因为 check on use , 如果先加的话加的动作本身会成功但是用的时候发现本地表没这个字段就会报错
-[^2]: 想着是数据库先兼容, 因为我担心先更新应用的话, 数据库看到不认识的字段会报错
-[^3]: 这里不得不吐槽一下阿里云托管版 clickhouse, 连日志也不给看, 需要提工单找阿里云的人帮忙看日志
 
