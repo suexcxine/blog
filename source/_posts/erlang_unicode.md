@@ -1,5 +1,6 @@
 title: erlang unicode
 date: 2015-09-08
+
 tags: erlang
 ---
 ## LANG & LC_CTYPE环境变量和encoding
@@ -113,7 +114,7 @@ test() ->
 > Eshell V6.2  (abort with ^G)
 > 1> test:test().
 > [[25105],<<230,136,145>>]
- 
+
 ## 文件编码带来的差异
 R15B, erlang一律以latin-1编译代码,遇到中文都编译成这种,
 如test模块的函数:

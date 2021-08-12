@@ -1,12 +1,16 @@
-title: 阿里云 polardb 体验有感
-date: 2021-07-29
+title: 阿里云体验有感
+date: 2021-08-12
 
 tags: [mysql, db]
 ---
 
-记录一下目前为止的感受, 写一些官方文档里没有说的话
+记录一下目前为止的感受, 写一些官方文档里没有说的话..
+
+(持续更新 ing )
 
 <!--more-->
+
+# polardb
 
 ### TDE加密
 
@@ -24,8 +28,6 @@ CREATE TABLE t1 (id int PRIMARY KEY,c1 varchar(10)) ENCRYPTION= 'Y';
 对于大表来说还是很慢, 难以接受, 更难受的一点是过程中会占用元数据锁(MDL), 于是DML都会卡住, 所以最好是一开始就加密, 要不就建议用DTS工具同步到一张新表再改名的方法来做
 
 阿里云DTS工具还是比较好用
-
-
 
 ### 秒加字段
 
@@ -52,4 +54,28 @@ Records: 0  Duplicates: 0  Warnings: 0
 如果这个字段里面还没有值, 比如全是0或空串或null的话, 那就
 
 `ALTER TABLE message RENAME COLUMN test_field TO reserved1;`
+
+# DTS
+
+双向同步配置任务的顺序, 先配置正向, 等正向链路执行到增量同步这个阶段时, 再配置反向, 要不会出问题, 比如说数据没同步上 >_<
+
+DTS的控制台写得超级不好, 比如按钮点击没反应(前端Console报错), 莫名弹窗报错当前请求失败请刷新页面(接口 500), 刷新完当然还是一样, 明明该有数字的地方给你显示的是 0 , 等等 ... >_<
+
+# DMS
+
+有一次有个大表(40多亿行), 通过无锁变更加索引, 执行了 5 天, 进度约 43% 的时候, 报错了
+
+报的是下面这个错:
+
+```
+DMS-OnlineDDL msg:Could not access HTTP invoker remote service; nested exception is org.apache.http.NoHttpResponseException: Did not receive successful HTTP response: status code = 302, status message = [Found]
+```
+
+钉钉群反馈后给出的解释是他们内部A系统调用B系统登录状态过期302到登录页面了, 一个连接调用保持不了5天的链接
+
+后来给我们公司专门设置了 token 的超时时间为不超时, >_<, 厉害
+
+
+
+
 
