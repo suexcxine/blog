@@ -75,6 +75,28 @@ DMS-OnlineDDL msg:Could not access HTTP invoker remote service; nested exception
 
 后来给我们公司专门设置了 token 的超时时间为不超时, >_<, 厉害
 
+续:
+
+于是我又执行了 5 天, 又失败了 >_<
+
+```
+DMS-OnlineDDL msg:Could not access HTTP invoker remote service; nested exception is javax.net.ssl.SSLHandshakeException: Remote host closed connection during handshake
+```
+
+于是我又怒气冲冲地找上去, 大佬告诉我没办法, 中间有一次发版, 所以中断了, 需要我再重试一下
+
+我... MMP
+
+再问你们下次什么时候发版呢? 告知我每周三晚上有一次, ...  那我是不是要等周四再重试?
+
+告诉我本周三发不发版还要找另一个大佬确认一下
+
+然后另一个大佬表示想确认一下失败的原因, 结果, 告诉我说, 任务没有失败, 后台还在跑, 震惊
+
+于是等了一天之后, 真的成功了
+
+真是个欢喜的故事
+
 # ALB
 
 开启健康检查后, 发现我明明配的 3 秒 1 次的健康检查, 结果我的应用服务器上竟然有高达 21 的 qps, 这个事会超过你的预期, 因为以前用 AWS 时也是这么配, qps 也就 2 左右
