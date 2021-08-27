@@ -1,7 +1,7 @@
-title: 阿里云体验有感
+title: 阿里云使用记录
 date: 2021-08-12
 
-tags: [mysql, db]
+tags: [mysql, db, cloud]
 ---
 
 记录一下目前为止的感受, 写一些官方文档里没有说的话..
