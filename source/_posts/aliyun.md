@@ -131,7 +131,12 @@ DMS-OnlineDDL msg:Could not access HTTP invoker remote service; nested exception
 
 耽误事
 
+# DDoS高防国际版
 
+海外访问anycast是就近走，国内访问国际高防根据运营商不同，线路是固定的
+移动——香港
+联通——新加坡
+电信——美国
 
 
 
