@@ -20,6 +20,14 @@ low_priority关键字也适用于update和delete
 insert select功能, 可以将select得到的结果插入表中
 insert into customers(xxx, yyy, ...) select xxx, yyy, ... from tablename;
 
+## load data
+
+从文件里批量导入数据, 相当于 SELECT ... INTO OUTFILE 的反面
+
+有锁, 比较危险, 不建议用
+
+参见 [阿里云使用记录](/2021/08/29/aliyun/)
+
 ## update
 update customers set cust_email = 'elmer@fudd.com' where cust_id = 10005;
 注意update和delete语句一定要写where子句, 应用程序里最好把where子句为空的情况直接报错处理
