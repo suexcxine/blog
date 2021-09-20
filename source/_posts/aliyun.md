@@ -55,6 +55,16 @@ Records: 0  Duplicates: 0  Warnings: 0
 
 `ALTER TABLE message RENAME COLUMN test_field TO reserved1;`
 
+### 表回收站
+
+注意事项里有一条"如果回收站数据库（**__recycle_bin__**）和待回收的表跨了文件系统，执行`DROP TABLE`语句将会搬迁表空间文件，耗时较长。"
+
+这里的意思是drop table之后，这个表在库里删除了，但是会放到回收站（另外一个存储），如果是同文件系统，迁移表空间文件的时候就会快一些，如果跨了文件系统，迁移文件就会慢。主要看后端存储用的什么文件系统。这个确定不了。
+
+这个注意事项就是解释下，有些情况执行的很快，drop table后很快就能在 recycle_bin 库中找到对应的表，有些情况比较慢。 可能就是跨文件系统的影响，导致drop table后 一段时间才能在 recycle_bin 库中找到对应的表。
+
+另外表比较大的话会比较慢，不会将实例打hang，不过对性能还是有些影响，因为会占用部分io资源。
+
 # DTS
 
 1
