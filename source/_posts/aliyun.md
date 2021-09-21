@@ -115,6 +115,20 @@ DMS-OnlineDDL msg:Could not access HTTP invoker remote service; nested exception
 
 真是个欢喜的故事
 
+
+
+2021-09-18 关于数据追踪
+
+有人 update 没写 where 把整表都覆盖了, 需要找回数据
+
+尝试用数据追踪, 结果报错, 询问阿里云的人, 答曰:
+
+"从日志看是Binlog过滤中连不上导致, binlog日志太多, 遇到读取异常了, 这边的 show binary logs 有多少的binlog?"
+
+查到有 1966 行, 答曰:
+
+"这个量比较大, 数据追踪解析超过100个, server上的binlog可能就已经差不多极限了, 看日志是解析到某个binlog的时候 网络异常被迫close掉了, 这边看下是否用其他的方式可以恢复, 数据追踪可能无法支持您这个恢复的场景。"
+
 # ALB
 
 开启健康检查后, 发现我明明配的 3 秒 1 次的健康检查, 结果我的应用服务器上竟然有高达 21 的 qps, 这个事会超过你的预期, 因为以前用 AWS 时也是这么配, qps 也就 2 左右
