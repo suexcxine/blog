@@ -55,6 +55,8 @@ Records: 0  Duplicates: 0  Warnings: 0
 
 `ALTER TABLE message RENAME COLUMN test_field TO reserved1;`
 
+*注意: 秒加字段的功能只能将新字段加到最后, 不能用 after, 如果用了 after 就秒不了了, 像以前一样慢*
+
 ### 表回收站
 
 注意事项里有一条"如果回收站数据库（**__recycle_bin__**）和待回收的表跨了文件系统，执行`DROP TABLE`语句将会搬迁表空间文件，耗时较长。"
