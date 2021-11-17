@@ -147,6 +147,16 @@ DMS-OnlineDDL msg:Could not access HTTP invoker remote service; nested exception
 
 21 的 qps 倒也不算很高, 这个接口要做得尽可能轻量, 另外要考虑日志污染的问题
 
+
+
+##### 循环抓包
+
+出问题时， 一般阿里云的支持会建议在 client 机器上循环抓包， 例如下面这样：
+最大抓取50个包，每个包20M，共占用1G的空间，这个抓包命令需要根据实际的情况修改。 
+tcpdump -i eth0 tcp and port 80 -C 20 -W 50 -w /tmp/cap.pcap
+
+
+
 # SLB
 
 有一次我们灰度一些流量到阿里云, 结果有一天突然 502, 一个多小时后自己恢复了, 找阿里云没查到问题
