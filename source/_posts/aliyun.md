@@ -173,6 +173,31 @@ tcpdump -i eth0 tcp and port 80 -C 20 -W 50 -w /tmp/cap.pcap
 
 耽误事
 
+
+
+# ElasticSearch
+
+有一次ES的一个数据节点， 据称 hippo slave进程异常，管控平台发现节点异常，自动做了自愈操作， 触发节点迁移重启。
+
+执行如下请求，看下集群未分配分片的情况
+
+```
+GET /_cluster/allocation/explain 
+```
+
+建议我们检查下节点的shard个数是不是过多了，单节点shard过多会消耗大量节点资源，监控读写请求增加，负载增加，索引加载异常等
+
+unassigned 现象，会导致分配分片的5次（默认）重试机会用完 ，所以不会再自动分配， 需要手动 retry
+
+建议依次执行以下ES_API尝试恢复（可以尝试多执行几次）。
+
+```
+POST visitor-2019-11/_flush
+POST _cluster/reroute?retry_failed
+```
+
+
+
 # DDoS高防国际版
 
 海外访问anycast是就近走，国内访问国际高防根据运营商不同，线路是固定的
