@@ -199,6 +199,8 @@ soundex将字符串转换为描述其语音的字母数字模式
 select cust_name, cust_contact from customers where soundex(cust_contact) = soundex('Y Lie');
 可以找到发音与'Y Lie'的行, 如 'Y Lee'
 
+
+
 ## 日期时间函数
 * adddate
 * addtime
@@ -220,7 +222,22 @@ select cust_name, cust_contact from customers where soundex(cust_contact) = soun
 SQL语句中使用的日期格式是yyyy-mm-dd, 如
 select cust_id from orders where date(order_date) = '2005-09-01'
 
+
+
+## Binary
+
+x'534234' 这种形式表示一个 hex 为 534234 的 binary ~ 
+并不是表示这个 hex string , 而是指它的 binary
+
+```sql
+select x'900150983cd24fb0d6963f7d28e17f72';
+P<ÒO°Ö?}(ár
+```
+
+
+
 ### 两位数年份
+
 00-69表示2000-2069, 70-99表示1970-1999
 但是尽量不要使用两位数年份这样有隐性规定的东西
 
