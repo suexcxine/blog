@@ -198,6 +198,18 @@ POST _cluster/reroute?retry_failed
 
 
 
+# ACK
+
+有一回有一个 Node 所在的 ECS 的 CPU 突然非常高， 然后上面的 pod 都自动迁移了
+
+原因不明， 阿里方面说是 ConntrackFull 表满了
+
+`sysctl net.nf_conntrack_max` 可以查看
+
+
+
+
+
 # DDoS高防国际版
 
 海外访问anycast是就近走，国内访问国际高防根据运营商不同，线路是固定的
