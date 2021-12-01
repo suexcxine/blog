@@ -175,6 +175,14 @@ tcpdump -i eth0 tcp and port 80 -C 20 -W 50 -w /tmp/cap.pcap
 
 
 
+##### sticky session
+
+有一种叫“植入cookie”的，是指由SLB服务器来给客户端设置Cookie，即http/https响应报文中插入SERVERID字串和客户配置时指定的超时时间，在此时间内会将同一客户端的请求传入到同一个后端ECS服务器
+
+当客户端浏览器再次用此cookie访问时SLB不会传给后端的ECS服务器，即插入cookie关键字与值对后端ECS来说完全不需要知道
+
+
+
 # ElasticSearch
 
 有一次ES的一个数据节点， 据称 hippo slave进程异常，管控平台发现节点异常，自动做了自愈操作， 触发节点迁移重启。
