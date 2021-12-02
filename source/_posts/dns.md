@@ -109,7 +109,7 @@ User switch command
  --> q
 ```
 
-现在再来查 DNS SRV 记录
+再来看一下 DNS SRV 记录
 
 ```bash
 bash-5.0# hostname -f
