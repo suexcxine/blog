@@ -8,6 +8,44 @@ tags: [internet, dns]
 
 <!--more-->
 
+# 什么是DNS SRV
+
+看下面一段 dig 命令的返回， 主要就是多了端口信息
+
+```
+;; ANSWER SECTION:
+elixir-plug-poc.default.svc.cluster.local. 30 IN SRV 0 50 4000 elixir-plug-poc-0.elixir-plug-poc.default.svc.cluster.local.
+elixir-plug-poc.default.svc.cluster.local. 30 IN SRV 0 50 4000 elixir-plug-poc-1.elixir-plug-poc.default.svc.cluster.local.
+```
+
+比如上面的信息中， 空格分隔的字段分别是
+
+name: elixir-plug-poc.default.svc.cluster.local.
+
+TTL: 30
+
+class: IN
+
+type: SRV
+
+priority: 0
+
+weight: 50 # priority 相同的情况下才会看 weight
+
+port: 4000
+
+target: elixir-plug-poc-0.elixir-plug-poc.default.svc.cluster.local. # 注意这个不能是CNAME， 即必须是A或AAAA
+
+
+
+感觉这个 SRV 记录主要是以前的一些东西（XMPP， SIP之类的）需要用，
+
+比如 `_xmpp._tcp.example.com. 86400 IN SRV 10 5 5223 server.example.com.`
+
+看起来这个 SRV 就是用来做服务发现和负载均衡
+
+
+
 # DNS SRV 记录如何帮助 elixir 结点组成集群
 
 kubernetes headless service 会创建 SRV 记录
