@@ -54,9 +54,27 @@ client(ServerPid, Request) ->
     end.
 ```
 
+看看最后几行， 还是需要 flush 一遍 message queue
+
+看得我有点郁闷。。
+
+文档里也提到 "Note that messages that at deactivation time already have entered the message queue will **not** be removed."
+
+所以还是需要 flush 一遍 message queue
+
+https://www.erlang.org/doc/reference_manual/processes.html#process-aliases
+
+
+
 官方博客称 gen_server, gen_statem 等都已经是用类似这种方式了
 
 https://www.erlang.org/blog/my-otp-24-highlights/#eep-53-process-aliases
+
+
+
+目测业务代码里完全用不到这个，gen_server, gen_statem 这些用了就可以了
+
+
 
 
 
