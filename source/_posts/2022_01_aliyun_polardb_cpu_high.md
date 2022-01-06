@@ -1,4 +1,4 @@
-title:  记录一次 polardb CPU 高的问题
+title:  记一次 polardb CPU 高的问题
 date: 2022-01-03
 
 tags: [mysql, db, cloud]
