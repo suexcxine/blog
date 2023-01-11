@@ -153,6 +153,10 @@ User switch command
 bash-5.0# hostname -f
 elixir-plug-poc-0.elixir-plug-poc.default.svc.cluster.local
 
+bash-5.0# dig +short elixir-plug-poc.default.svc.cluster.local
+10.0.1.6
+10.0.2.6
+
 bash-5.0# dig SRV elixir-plug-poc.default.svc.cluster.local
 
 ; <<>> DiG 9.14.3 <<>> SRV elixir-plug-poc.default.svc.cluster.local
