@@ -188,6 +188,16 @@ elixir-plug-poc-1.elixir-plug-poc.default.svc.cluster.local. 30	IN A 10.0.2.6
 ;; MSG SIZE  rcvd: 472
 ```
 
+```
+kubectl exec elixir-plug-poc-0 -- nslookup elixir-plug-poc
+Server:		10.96.0.10
+Address:	10.96.0.10#53
+
+Name:	elixir-plug-poc.default.svc.cluster.local
+Address: 10.0.1.6
+Name:	elixir-plug-poc.default.svc.cluster.local
+Address: 10.0.2.6
+```
 符合预期
 
 
