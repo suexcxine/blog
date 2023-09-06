@@ -1,7 +1,11 @@
-
-# 延时任务处理系统：一个 Golang 和 PostgreSQL 的解决方案
+title: 延时任务处理系统：一个 Golang 和 PostgreSQL 的解决方案
+date: 2023-09-06
+tags: [go, postgresql]
+---
 
 延时任务是一个常见的需求。在这篇博客中，我将探讨如何使用 Golang 和 PostgreSQL 来构建一个高效、可靠的延时任务处理系统。
+
+<!--more-->
 
 ## 背景
 
