@@ -1,4 +1,4 @@
-title: 使用 Redis 和 Go 实现高效的延时任务队列
+title: 使用 Redis 和 Go 实现高效的延时任务处理
 date: 2023-09-07
 tags: [go, redis]
 ---
