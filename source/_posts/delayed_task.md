@@ -23,7 +23,7 @@ tags: [go, postgresql]
     
 2. **服务器启动时的任务加载**：为了避免在系统升级或重启时丢失尚未处理的任务，我们在服务器启动时从数据库中检索所有待处理的延时任务。每个检索到的任务都会被分配一个新的 `time.NewTimer` 计时器，以重新开始计时，确保任务能够在预定的时间得到执行。
     
-3. **TimerManager**：尽管我们已经实施了服务器启动时的任务加载机制，但在某些情况下仍然存在任务丢失的风险。例如，在我们进行系统升级时，如果我们首先启动新的节点然后再关闭旧的节点，新节点在启动时可能无法检索到旧节点上的无主任务。此外，如果我们减少了节点的数量，也可能会丢失一些任务。为了解决这些问题，我们设计了 TimerManager。它每隔分钟会自动从数据库中拉取当前无主的待处理任务，确保这些任务不会因为系统的变化而丢失。
+3. **TimerManager**：尽管我们已经实施了服务器启动时的任务加载机制，但在某些情况下仍然存在任务丢失的风险。例如，在我们进行系统升级时，如果我们首先启动新的节点然后再关闭旧的节点，新节点在启动时可能无法检索到旧节点上的无主任务。此外，如果我们减少了节点的数量或节点宕机，也可能会丢失一些任务。为了解决这些问题，我们设计了 TimerManager。它每隔分钟会自动从数据库中拉取当前无主的待处理任务，确保这些任务不会因为系统的变化而丢失。
     
 4. **任务执行**：当计时器到达预定的时间点时，它会触发相应的任务执行程序。一旦任务成功执行，我们将从数据库中删除该任务的记录或将其标记为已完成，以保持数据的准确性和一致性。
 
@@ -120,6 +120,12 @@ func getPendingTasks() ([]Task, error) {
 
 
 func scheduleTask(task Task) {
+	err := createTask(task.Content, task.ExecuteAt)
+	if err != nil {
+		log.Println("Failed to create task:", err)
+		return
+	}
+	
 	delay := task.ExecuteAt.Sub(time.Now())
 	timer := time.NewTimer(delay)
 	<-timer.C
@@ -137,6 +143,14 @@ func executeTask(task Task) {
 	if err != nil {
 		log.Println("Failed to update task status:", err)
 	}
+}
+
+func createTask(content string, executeAt time.Time) error {
+	_, err := db.Exec(`
+		INSERT INTO tasks (content, status, execute_at)
+		VALUES ($1, 'pending', $2)
+	`, content, executeAt)
+	return err
 }
 
 func timerManager() {
@@ -173,7 +187,7 @@ func timerManager() {
 
 如果拉取任务时发现已经超过预定的执行时间了的话，可以按业务需求加一些类型, 比如需要补的，超出多长时间以内可以补的，不需要补的，等等。
 
-
+如果介意一个结点下线时要等到下一个结点启动或5分钟后这个时间间隔太长的话，可以在一个结点下线时往一个 MQ 发一条消息（在此之前先把消费者关了避免被自己消费到），其他结点中的某一个消费时拉取这些定时任务即可大幅缩短这个时间间隔。
 
 
 
