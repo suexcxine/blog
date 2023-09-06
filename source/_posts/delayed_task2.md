@@ -8,7 +8,7 @@ tags: [go, redis]
 <!--more-->
 ## 方案设计
 
-我的方案是创建一个延时任务队列，其中每个任务都有一个执行时间。我将使用 Redis 的 Sorted Set 数据结构来存储这些任务，其中任务的执行时间作为分数。每个 Go web server 结点都将运行一个 TaskManager go routine，它将周期性地查询 Redis 来检索和执行到期的任务。
+我的方案是创建一个延时任务队列，其中每个任务都有一个执行时间。我将使用 Redis 的 Sorted Set 数据结构来存储这些任务，其中任务的执行时间作为分数。每个 Go web server 结点都将运行一个 TaskManager go routine，它将轮询 Redis 来检索和执行到期的任务。
 
 ### 数据结构
 
