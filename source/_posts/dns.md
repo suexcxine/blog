@@ -113,14 +113,14 @@ elixir-plug-poc-1   1/1     Running   0          3m23s
 进入 container 看一下
 
 ```
-kubectl -n tutorial exec -it elixir-plug-poc-0 /bin/bash
+kubectl -n default exec -it elixir-plug-poc-0 /bin/bash
 bash-5.0# ERLANG_COOKIE="cookie" bin/elixir_plug_poc remote_console
 Erlang/OTP 22 [erts-10.4.3] [source] [64-bit] [smp:1:1] [ds:1:1:10] [async-threads:1] [hipe]
 
 Interactive Elixir (1.9.0) - press Ctrl+C to exit (type h() ENTER for help)
 
 # 下面发现用的是 libcluster 的 DNSSRV 集群策略, 而且指定了 k8s 的 namespace 是 default
-iex(elixir_plug_poc@elixir-plug-poc-0.elixir-plug-poc.tutorial.svc.cluster.local)> Application.get_all_env(:libcluster)
+iex(elixir_plug_poc@elixir-plug-poc-0.elixir-plug-poc.default.svc.cluster.local)> Application.get_all_env(:libcluster)
 [
   debug: true,
   topologies: [
