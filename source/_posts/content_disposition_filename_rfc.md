@@ -5,15 +5,17 @@ tags: [web, rails, telegram, rfc]
 
 遇到一个下载链接不支持中文文件名的问题，查了一下好多不知道的东西冒了出来，RFC 5987, RFC 7578...
 
+<!--more-->
+
 rails 的 active storage 有一个为 blob 生成 url 的函数，文档如下:
 https://edgeapi.rubyonrails.org/classes/ActiveStorage/Blob.html#method-i-url
 
 生成出来的 url 大概这个样:
-```
+```html
 https://suexcxine-test.s3.ap-southeast-1.amazonaws.com/lm4vky0jbnts7sih77d3d6ind197?response-content-disposition=inline%3B%20filename%3D%22%253F%253Fpdf.pdf%22%3B%20filename%2A%3DUTF-8%27%27%25E6%25B5%258B%25E8%25AF%2595pdf.pdf&response-content-type=application%2Fpdf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIVOOJV2V5F72J24Q%2F20240117%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20240117T085041Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=b8159ee599c4e5b771719eee026238481b44b47d535021e532f42c2cdaf03807
 ```
 url decode 后这样:
-```
+```html
 https://suexcxine-test.s3.ap-southeast-1.amazonaws.com/lm4vky0jbnts7sih77d3d6ind197?response-content-disposition=inline; filename="%3F%3Fpdf.pdf"; filename*=UTF-8''%E6%B5%8B%E8%AF%95pdf.pdf&response-content-type=application/pdf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIVOOJV2V5F72J24Q/20240117/ap-southeast-1/s3/aws4_request&X-Amz-Date=20240117T085041Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=b8159ee599c4e5b771719eee026238481b44b47d535021e532f42c2cdaf03807
 ```
 可以看到其中有
