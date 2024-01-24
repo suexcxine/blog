@@ -1,4 +1,4 @@
-title: Ruby 中可以使用 `send` 绕过 private 方法访问限制
+title: Ruby 中可以使用 send 绕过 private 方法访问限制
 date: 2024-01-24
 
 tags: [mysql, db, cloud]
