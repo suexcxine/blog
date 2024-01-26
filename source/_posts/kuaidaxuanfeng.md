@@ -7,6 +7,7 @@ tags: [game]
 
 ![](/pics/kdxf/0.png)
 
+<!--more-->
 ![](/pics/kdxf/1.png)
 
 ![](/pics/kdxf/2.png)
