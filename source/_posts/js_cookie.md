@@ -48,6 +48,16 @@ Cookies.set('name', 'value', { expires: 7, path: '/' });
 Cookies.remove('name', { expires: 7, path: '/' });
 ```
 
+### 实现跨子域共享
+
+在多子域应用中，共享用户认证状态或偏好设置是 `domain` 属性的一个常见妙用。例如，一个公司拥有多个子域名：`www.example.com`、`blog.example.com` 和 `shop.example.com`。要实现用户在这些子域之间无缝切换而无需重新登录，就需要在设置 cookie 时将 `domain` 属性设置为 `.example.com`（注意前面的点）：
+
+javascriptCopy code
+
+`Cookies.set('preference', 'dark', { domain: '.example.com' });`
+
+这样设置后，无论用户在哪个子域下登录，`preference` 这个 cookie 都对所有 `example.com` 的子域可见，从而实现了跨子域的用户状态共享。
+
 ### 编码和解码
 
 js-cookie 自动处理 cookie 值的编码和解码，使用 `encodeURIComponent` 和 `decodeURIComponent` 函数。这意味着即使值中包含特殊字符（如分号、逗号或空白符），也能正确保存和读取 cookie。这样做的目的是为了确保 cookie 的名称和值在传输过程中不会破坏 HTTP 请求和响应的结构。
