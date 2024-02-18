@@ -52,8 +52,6 @@ Cookies.remove('name', { expires: 7, path: '/' });
 
 在多子域应用中，共享用户认证状态或偏好设置是 `domain` 属性的一个常见妙用。例如，一个公司拥有多个子域名：`www.example.com`、`blog.example.com` 和 `shop.example.com`。要实现用户在这些子域之间无缝切换而无需重新登录，就需要在设置 cookie 时将 `domain` 属性设置为 `.example.com`（注意前面的点）：
 
-javascriptCopy code
-
 `Cookies.set('preference', 'dark', { domain: '.example.com' });`
 
 这样设置后，无论用户在哪个子域下登录，`preference` 这个 cookie 都对所有 `example.com` 的子域可见，从而实现了跨子域的用户状态共享。
