@@ -69,7 +69,7 @@ const text = div.textContent || '';
 
 ```js
 div.innerHTML = '<video src="x" onerror="pwned()">';
-// pwned() 在这一行执行完之前就已经被调用了
+// pwned() 在赋值后很快被调用——浏览器异步触发 onerror，但通常在同一事件循环任务内完成
 ```
 
 攻击载荷只需要是一个未闭合的 `<video>` 或 `<img>`（未闭合可以绕过只匹配 `<video>...</video>` 的正则过滤），`onerror` 就会在"纯文本提取"的瞬间触发。
@@ -148,8 +148,11 @@ document.addEventListener('copy', e => {
 ```js
 new MutationObserver(mutations => {
     for (const m of mutations) {
-        const text = m.target.textContent;
-        if (looksInteresting(text)) report(text);
+        // m.addedNodes 是本次新增的节点列表
+        for (const node of m.addedNodes) {
+            const text = node.textContent;
+            if (looksInteresting(text)) report(text);
+        }
     }
 }).observe(document.body, { childList: true, subtree: true });
 ```
